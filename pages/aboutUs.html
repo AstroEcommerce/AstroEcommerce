@@ -112,15 +112,59 @@
         background: repeating-linear-gradient(to right, #432553,  #000150);
     }
 
+    @media (max-width: 1029px) {
+        .div-MeetUs-group{
+            width: auto;
+            /* width: 100%; */
+        } 
+    }
+    @media (max-width: 992px) {
+        .query992{
+            display: flex;
+            flex-direction: column;
+        } 
+    }
+    @media (max-width: 776px) {
+        video{
+            width: 450px;
+            height: 250px;
+        }
+        .widthHeight100{
+            width: 130px;
+            height: 130px;
+        }
+        .query776{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        } 
+    }
+    @media (max-width: 585px) {
+        video{
+            width: 300px;
+            height: 175px;
+        }
+       .text-story{
+           font-size: 12px;
+       }
+       .query585{
+        width: min-content;
+       }
+       .padding50px{
+           padding: 10px;
+       }
+        
+    }
+
 
   </style>
 </head>
 <body style="background-image: url(/images/bg-aboutUs.jpg); background-size: cover;">
 
-    <div class="container d-flex flex-column">
+    <div class="container d-flex flex-column query585">
         <center><h1 class="text-color pt-5 pb-2">About Us</h1></center>
 
-        <div class="d-flex justify-content-center align-items-center padding50px">
+        <div class="d-flex justify-content-center align-items-center padding50px query992">
             <div class="container-fluid ">
                     <h3 class="text-color ">Our Mission</h3>
                         <p class="text-color fs-5 mt-5 mb-5 p-3 rounded-5" style="backdrop-filter: blur(10px);">At StarDust Elixirs, our mission is to unlock the hidden potential within every individual. We strive to bring the power of the cosmos into your hands, offering a unique experience that transforms ordinary people into extraordinary beings.</p>
@@ -164,14 +208,14 @@
             <div class="padding50px">
                 <h3 class="text-color">Our Stroy</h3>
                 <div class="div-story">
-                    <div class="d-flex">
+                    <div class="d-flex query776">
                         <p class="text-color text-story">Three years ago, an old friend of ours, a scientist, returned from a groundbreaking mission in outer space. They returned with a treasure that took our breath away: a jar containing mysterious dust from an unknown planet! This extraordinary item became the centerpiece of our lab we never stopped  treating it with excitement and curiosity. </p> <img class="story-alignment" src="/images/outer_space.jpg">
                     </div>
-                    <div class="d-flex">
+                    <div class="d-flex query776">
                         <img class="story-alignment" src="https://cdn.openart.ai/published/wsqRTjiBYFVtqv6b11GN/XRLala8c_4-tO_512.webp">
                         <p class="text-color text-story">One day, while cleaning the jar a small mishap changed everything. Some of the precious dust accidentally spilled into a flask containing a complex mixture of chemicals.!  The reaction caused a small explosion that sent chills through our bodies. When the dust settled, we were left with an incredible collection of unique, shiny fragments.!</p>
                     </div> 
-                    <div class="d-flex">
+                    <div class="d-flex query776">
                         <p class="text-color text-story">Since then, we were studying the characteristics of it, to our amazement, we discovered something phenomenal—these substances endowed individuals with superhuman powers! But the most remarkable part  was that no two superpowers were alike, even when created with the exact same formula.
                         And that was how StarDust Elixirs was born! </p> <img class="story-alignment" src="/images/superPower.jpeg">
                     </div>
@@ -182,7 +226,6 @@
         <center>
             <div class="cta-container padding50px">
                 <h2>Ready to Discover Your Superpower?</h2>
-                <!-- <p>Join the revolution and unlock the limitless potential hidden within you. Get your StarDust Elixir today!</p> -->
                 <a href="shop.html" class="cta-button">Get Your Elixir Now</a>
             </div>
         </center>
