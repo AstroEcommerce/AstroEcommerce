@@ -1,0 +1,32 @@
+/* hero.css */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(45deg,
+   rgba(93, 72, 128, 0.3),
+    rgba(53, 74, 119, 0.3),
+     rgba(73, 1, 135, 0.3),
+      rgba(62, 2, 90, 0.3),
+       rgba(93, 72, 128, 0.3)) 0 0 / 1000% no-repeat,
+        url('../images/hero.jpg') 0 0 / cover no-repeat;
+  -webkit-animation: gradientAnimation 40s ease infinite;
+  animation: gradientAnimation 10s ease infinite;
+}
+@-webkit-keyframes gradientAnimation {
+  0%   { background-position: 0% 30%, 0 0;}
+  50%  { background-position: 100% 70%, 0 0;}
+  100% { background-position: 0% 30%, 0 0;}
+}
+@keyframes gradientAnimation {
+  0%   { background-position: 0% 30%, 0 0;}
+  50%  { background-position: 100% 70%, 0 0;}
+  100% { background-position: 0% 30%, 0 0;}
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 500px;
+  }
+}

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+    <link rel="stylesheet" href="../css/shop.css">
+</head>
+<body>
+    <nav class="fixed-top navnav">
+        <!-- Main Navigation Bar -->
+        <nav class="container navbar navbar-expand-lg navbar-dark">
+          <div class="container-fluid d-flex align-items-center justify-content-between mainNav">
+            <!-- Toggler for Mobile & Logo -->
+            <div class="d-flex align-items-center siteLogo">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <!-- Logo -->
+              <a class="navbar-brand" href="#">
+                <img
+                  src="../images/_TEAM ONE_ logo, white font color in one line  -Photoroom.png"
+                  width="100px"
+                  alt="logo"
+                  class="d-inline-block align-top"
+                />
+              </a>
+            </div>
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse justify-content-center siteLinks" id="navbarNav">
+              <ul class="navbar-nav gap-lg-5 gap-3">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="./pages/shop.html">Shop</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+              </ul>
+            </div>
+            <!-- Search Bar -->
+            <form class="d-flex align-items-center siteSearch">
+              <input
+                class="form-control me-2 search-bar"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button title="Search" class="btn btn-outline-light" type="submit">
+                <i class="fas fa-search"></i>
+              </button>
+            </form>
+            <!-- Icons (Wishlist, Cart, Account) -->
+            <ul class="navbar-nav ms-auto align-items-center siteIcons">
+              <li class="nav-item">
+                <a class="nav-link" href="#" title="Wishlist"><i class="fas fa-heart"></i></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" title="Cart"><i class="fas fa-shopping-cart"></i></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" title="Account"><i class="fas fa-user"></i></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <!-- Secondary Navbar (Bottom) -->
+        <nav class="container navbar navbar-expand-lg navbar-dark bottom-nav">
+          <div class="container-fluid d-flex justify-content-center">
+            <!-- Category Slider with Navigation Buttons -->
+            <div class="d-flex align-items-center w-100">
+              <button title="Scroll Left" class="btn btn-outline-light btn-sm scroll-left">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <div class="category-slider-container flex-grow-1 mx-2">
+                <div class="category-slider">
+                  <a href="#" class="btn btn-outline-light mx-1">Category 1</a>
+                  <a href="#" class="btn btn-outline-light mx-1">Category 2</a>
+                  <a href="#" class="btn btn-outline-light mx-1">Category 3</a>
+                  <a href="#" class="btn btn-outline-light mx-1">Category 4</a>
+                  <a href="#" class="btn btn-outline-light mx-1">Category 5</a>
+                  <a href="#" class="btn btn-outline-light mx-1">Category 6</a>
+                  <a href="#" class="btn btn-outline-light mx-1">Category 7</a>
+                  <a href="#" class="btn btn-outline-light mx-1">Category 8</a>
+                  <a href="#" class="btn btn-outline-light mx-1">Category 9</a>
+                  <a href="#" class="btn btn-outline-light mx-1">Category 10</a>
+                </div>
+              </div>
+              <button title="Scroll Right" class="btn btn-outline-light btn-sm scroll-right">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </nav>
+      </nav>
+
+
+      <div class="shop-bg">
+            <div class="container d-flex gap-5 justify-content-center">
+                <div class="category-solo" style="border: 1px solid #ccaf82;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#ccaf82";><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M21 9H3 "/><path d="M21 15H3"/></svg>
+                    <p style="color:#ccaf82;">All</p>
+                </div>
+                <div class="category-solo" style="border: 1px solid #9787c7;">
+                    <svg class="icon-zap" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#9787c7";>
+                        <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
+                    </svg>
+                    <p style="color:#9787c7;">Phsical Powers</p>
+                </div>
+                <div class="category-solo" style="border: 1px solid #9b6e93;">
+                    <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#9b6e93";><path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2"/><path d="M6.453 15h11.094"/><path d="M8.5 2h7"/></svg></div>
+                    <p style="color:#9b6e93;">All</p>
+                </div>
+                <div class="category-solo" style="border: 1px solid #947d8f;">
+                    <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#947d8f"; ><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path d="M3.477 10.896a4 4 0 0 1 .585-.396"/><path d="M19.938 10.5a4 4 0 0 1 .585.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M19.967 17.484A4 4 0 0 1 18 18"/></svg></div>
+                    <p style="color:#947d8f;">Mental</p>
+                </div>
+                <div class="category-solo" style="border: 1px solid #678283;">
+                    <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#678283"; ><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/></svg></div>
+                    <p style="color:#678283;">Features</p>
+                </div>
+                <div class="category-solo" style="border: 1px solid #7f8a64;">
+                    <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#7f8a64";><path d="M16.17 7.83 2 22"/><path d="M4.02 12a2.827 2.827 0 1 1 3.81-4.17A2.827 2.827 0 1 1 12 4.02a2.827 2.827 0 1 1 4.17 3.81A2.827 2.827 0 1 1 19.98 12a2.827 2.827 0 1 1-3.81 4.17A2.827 2.827 0 1 1 12 19.98a2.827 2.827 0 1 1-4.17-3.81A1 1 0 1 1 4 12"/><path d="m7.83 7.83 8.34 8.34"/></svg></div>
+                    <p style="color:#7f8a64;">All</p>
+                </div>
+                <div class="category-solo" style="border: 1px solid #8f8576;">
+                    <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#8f8576";><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></div>
+                    <p style="color:#8f8576;">Animal Based</p>
+                </div>
+                <div class="category-solo" style="border: 1px solid #ccaf82;">
+                    <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" ><path d="M10 10.01h.01"/><path d="M10 14.01h.01"/><path d="M14 10.01h.01"/><path d="M14 14.01h.01"/><path d="M18 6v11.5"/><path d="M6 6v12"/><rect x="2" y="6" width="20" height="12" rx="2"/></svg></div>
+                    <p>All</p>
+                </div>
+                <div class="category-solo" style="border: 1px solid #ccaf82;">
+                    <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" ><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="M15.947 12.65a4 4 0 0 0-5.925-4.128"/><path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z"/></svg></div>
+                    <p>All</p>
+                </div>
+            </div>
+            <div class="container mt-5 d-flex gap-5 flex-wrap justify-content-center">
+                <!-- From Uiverse.io by MuhammadHasann --> 
+              <div class="card">
+                <div class="image_container">
+                  <img src="../images/pill1.jpg" alt="">
+                </div>
+                <div class="title">
+                  <span>New brand name</span>
+                </div>
+                <div class="description">
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+                <div class="action">
+                  <div class="price">
+                    <span>$299</span>
+                  </div>
+                  <button class="cart-button">
+                    <svg
+                      class="cart-icon"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                      ></path>
+                    </svg>
+                    <span>Add to cart</span>
+                  </button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="image_container">
+                  <img src="../images/pill2.jpg" alt="">
+                </div>
+                <div class="title">
+                  <span>New brand name</span>
+                </div>
+                <div class="description">
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+                <div class="action">
+                  <div class="price">
+                    <span>$299</span>
+                  </div>
+                  <button class="cart-button">
+                    <svg
+                      class="cart-icon"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                      ></path>
+                    </svg>
+                    <span>Add to cart</span>
+                  </button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="image_container">
+                  <img src="../images/pill3.jpg" alt="">
+                </div>
+                <div class="title">
+                  <span>New brand name</span>
+                </div>
+                <div class="description">
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+                <div class="action">
+                  <div class="price">
+                    <span>$299</span>
+                  </div>
+                  <button class="cart-button">
+                    <svg
+                      class="cart-icon"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                      ></path>
+                    </svg>
+                    <span>Add to cart</span>
+                  </button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="image_container">
+                  <img src="../images/pill4.jpg" alt="">
+                </div>
+                <div class="title">
+                  <span>New brand name</span>
+                </div>
+                <div class="description">
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+                <div class="action">
+                  <div class="price">
+                    <span>$299</span>
+                  </div>
+                  <button class="cart-button">
+                    <svg
+                      class="cart-icon"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                      ></path>
+                    </svg>
+                    <span>Add to cart</span>
+                  </button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="image_container">
+                  <img src="../images/pill4.jpg" alt="">
+                </div>
+                <div class="title">
+                  <span>New brand name</span>
+                </div>
+                <div class="description">
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+                <div class="action">
+                  <div class="price">
+                    <span>$299</span>
+                  </div>
+                  <button class="cart-button">
+                    <svg
+                      class="cart-icon"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                      ></path>
+                    </svg>
+                    <span>Add to cart</span>
+                  </button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="image_container">
+                  <img src="../images/pill5.jpg" alt="">
+                </div>
+                <div class="title">
+                  <span>New brand name</span>
+                </div>
+                <div class="description">
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+                <div class="action">
+                  <div class="price">
+                    <span>$299</span>
+                  </div>
+                  <button class="cart-button">
+                    <svg
+                      class="cart-icon"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                      ></path>
+                    </svg>
+                    <span>Add to cart</span>
+                  </button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="image_container">
+                  <img src="../images/pill6.jpg" alt="">
+                </div>
+                <div class="title">
+                  <span>New brand name</span>
+                </div>
+                <div class="description">
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+                <div class="action">
+                  <div class="price">
+                    <span>$299</span>
+                  </div>
+                  <button class="cart-button">
+                    <svg
+                      class="cart-icon"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                      ></path>
+                    </svg>
+                    <span>Add to cart</span>
+                  </button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="image_container">
+                  <img src="../images/pill7.jpg" alt="">
+                </div>
+                <div class="title">
+                  <span>New brand name</span>
+                </div>
+                <div class="description">
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+                <div class="action">
+                  <div class="price">
+                    <span>$299</span>
+                  </div>
+                  <button class="cart-button">
+                    <svg
+                      class="cart-icon"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                      ></path>
+                    </svg>
+                    <span>Add to cart</span>
+                  </button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="image_container">
+                  
+                </div>
+                <div class="title">
+                  <span>New brand name</span>
+                </div>
+                <div class="description">
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+                <div class="action">
+                  <div class="price">
+                    <span>$299</span>
+                  </div>
+                  <button class="cart-button">
+                    <svg
+                      class="cart-icon"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                      ></path>
+                    </svg>
+                    <span>Add to cart</span>
+                  </button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="image_container">
+                  
+                </div>
+                <div class="title">
+                  <span>New brand name</span>
+                </div>
+                <div class="description">
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+                <div class="action">
+                  <div class="price">
+                    <span>$299</span>
+                  </div>
+                  <button class="cart-button">
+                    <svg
+                      class="cart-icon"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                      ></path>
+                    </svg>
+                    <span>Add to cart</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+      </div>
+
+  
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-content">
+            <div class="row mb-3">
+              <div class="col-md-3">
+                <h6>Cookie Settings</h6>
+                <a href="#">Press</a>
+              </div>
+              <div class="col-md-3">
+                <h6>FAQs</h6>
+                <a href="#">Terms & Conditions</a><br />
+                <a href="#">Ad Choices</a>
+              </div>
+              <div class="col-md-3">
+                <h6>Privacy & Cookies</h6>
+                <a href="#">Children's Privacy Policy</a><br />
+                <a href="#">Legals</a>
+              </div>
+              <div class="col-md-3">
+                <img
+                  src="/images/_TEAM ONE_ logo, white font color in one line  -Photoroom.png"
+                  alt="Harry Potter Logo"
+                  class="logo"
+                />
+                <!-- Harry Potter Logo -->
+              </div>
+            </div>
+            <hr class="my-4" />
+            <div class="text-center">
+              <p>© WIZARDING WORLD DIGITAL 2025</p>
+              <p>
+                Looking for Wizarding World?
+                <a href="https://www.harrypotter.com" class="fw-bold"
+                  >HarryPotter.com</a
+                >
+                is the official home of Harry Potter, Fantastic Beasts, and the
+                Wizarding World, formerly known as Pottermore.
+              </p>
+              <p>
+                Brought to you by Wizarding World Digital and its parent company
+                Warner Bros. Entertainment Inc., delivering the latest news and
+                official products from the Wizarding World and our partners.
+              </p>
+              <p>
+                All characters and elements © &trade; Warner Bros. Entertainment
+                Inc. Publishing Rights © J.K. Rowling.
+              </p>
+            </div>
+            <div class="social-icons mt-3 text-center">
+              <a href="#" title="Twitter"><i class="fa-solid fa-bolt"></i></a>
+              <a href="#" title="Facebook"><i class="fa-solid fa-bolt"></i></a>
+              <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+              <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    <script src="../js/navbar.js"></script>
+
+    <script>
+    $('.buy').click(function(){
+      $('.bottom').addClass("clicked");
+    });
+    
+    $('.remove').click(function(){
+      $('.bottom').removeClass("clicked");
+    });
+    </script>
+</body>
+</html> 
