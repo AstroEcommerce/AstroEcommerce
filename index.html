@@ -14,13 +14,18 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/style.css" />
+    <!-- Splide.js CSS -->
+    <link href="
+    https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
+    " rel="stylesheet">
+
   </head>
   <body>
     <p> test test test</p>
     <nav class="fixed-top navnav">
       <!-- Main Navigation Bar -->
-      <nav class="container navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid d-flex align-items-center justify-content-between mainNav">
+      <nav class="navbar navbar-expand-lg navbar-dark top-nav">
+        <div class="container d-flex align-items-center justify-content-between mainNav">
           <!-- Toggler for Mobile & Logo -->
           <div class="d-flex align-items-center siteLogo">
             <button
@@ -80,8 +85,8 @@
         </div>
       </nav>
       <!-- Secondary Navbar (Bottom) -->
-      <nav class="container navbar navbar-expand-lg navbar-dark bottom-nav">
-        <div class="container-fluid d-flex justify-content-center">
+      <nav class="navbar navbar-expand-lg navbar-dark bottom-nav">
+        <div class="container d-flex justify-content-center">
           <!-- Category Slider with Navigation Buttons -->
           <div class="d-flex align-items-center w-100">
             <button title="Scroll Left" class="btn btn-outline-light btn-sm scroll-left">
@@ -89,15 +94,15 @@
             </button>
             <div class="category-slider-container flex-grow-1 mx-2">
               <div class="category-slider">
-                <a href="#" class="btn btn-outline-light mx-1">Category 1</a>
-                <a href="#" class="btn btn-outline-light mx-1">Category 2</a>
-                <a href="#" class="btn btn-outline-light mx-1">Category 3</a>
-                <a href="#" class="btn btn-outline-light mx-1">Category 4</a>
-                <a href="#" class="btn btn-outline-light mx-1">Category 5</a>
-                <a href="#" class="btn btn-outline-light mx-1">Category 6</a>
-                <a href="#" class="btn btn-outline-light mx-1">Category 7</a>
-                <a href="#" class="btn btn-outline-light mx-1">Category 8</a>
-                <a href="#" class="btn btn-outline-light mx-1">Category 9</a>
+                <a href="#" class="btn btn-outline-light mx-1"> <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#77ff00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-dumbbell"><path d="M14.4 14.4 9.6 9.6"/><path d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z"/><path d="m21.5 21.5-1.4-1.4"/><path d="M3.9 3.9 2.5 2.5"/><path d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z"/></svg> Physical Enhancements</a>
+                <a href="#" class="btn btn-outline-light mx-1">Elemental Control</a>
+                <a href="#" class="btn btn-outline-light mx-1">Mental and Psychic Abilities</a>
+                <a href="#" class="btn btn-outline-light mx-1">Transformation and Shapeshifting</a>
+                <a href="#" class="btn btn-outline-light mx-1">Dimensional and Spatial Manipulation</a>
+                <a href="#" class="btn btn-outline-light mx-1">Biological and Healing Powers</a>
+                <a href="#" class="btn btn-outline-light mx-1">Stealth and Invisibility</a>
+                <a href="#" class="btn btn-outline-light mx-1">Animal and Nature-Based Powers</a>
+                <a href="#" class="btn btn-outline-light mx-1">Memory and Knowledge-Based Powers</a>
                 <a href="#" class="btn btn-outline-light mx-1">Category 10</a>
               </div>
             </div>
@@ -108,9 +113,188 @@
         </div>
       </nav>
     </nav>
+    
+    
     <div class="hero">
-      <h1>StarDust<span>- TEAM ONE -</span></h1>
+      <div class="hero-content">
+        <h1>StarDust<span>- TEAM ONE -</span></h1>
+        <p class="hero-description">Unleash the power of innovation with StarDust. Join us on a journey to explore the unknown and create the future.</p>
+        <div class="hero-buttons">
+          <a href="#about" class="btn btn-primary">Shop Now</a>
+          <a href="#contact" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
     </div>
+
+    <div class="container section">
+      <h1>Best Sellers</h1>
+      <div id="image-slider" class="splide container">
+        <div class="splide__track ">
+            <ul class="splide__list  ">
+                <li class="splide__slide"><div class="card">
+                  <div class="image_container">
+                    <img src="../images/pill1.jpg" alt="" />
+                  </div>
+                  <div class="title">
+                    <span>New brand name</span>
+                  </div>
+                  <div class="description">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  </div>
+                  <div class="action">
+                    <div class="price">
+                      <span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-baseline"><path d="M4 20h16"/><path d="m6 16 6-12 6 12"/><path d="M8 12h8"/></svg> 299</span>
+                    </div>
+                    <button class="cart-button">
+                      <svg
+                      class="cart-icon"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                        stroke-linejoin="round"
+                        stroke-linecap="round">
+                      </path>
+                    </svg>
+                      <span>Add to Cart</span>
+                    </button>
+                  </div>
+                </div></li>
+                
+            </ul>
+        </div>
+    </div>
+    </div>
+
+
+    
+
+
+
+
+  <div class="container d-flex flex-row create">
+    <div class="text d-flex flex-column w-50 p-1">
+      <h1>Creat Your Own Super Power!</h1>
+      <p>Construct and create your super power and our scintenst will make the formula with perfect balance.</p>
+      <div class="feature-container ">
+        
+            
+      <!-- Card 1 -->
+      <div class="feature-card">
+        <div class="text-content">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ff0077" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+              <path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"/>
+          </svg>
+            <h6>Name Your Super Power</h6>
+            <p>Go crazy and as creative as you desire!</p>
+        </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="feature-card">
+      <div class="text-content">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffdd00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="10" x2="14" y1="2" y2="2"/>
+              <line x1="12" x2="15" y1="14" y2="11"/>
+              <circle cx="12" cy="14" r="8"/>
+          </svg>
+            <h6>For how long do you want to be a hero?</h6>
+            <p>Remember, time is money!</p>
+        </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="feature-card">
+      <div class="text-content">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0077ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 2v2"/>
+              <path d="M14 2v4"/>
+              <path d="M17 2a1 1 0 0 1 1 1v9H6V3a1 1 0 0 1 1-1z"/>
+              <path d="M6 12a1 1 0 0 0-1 1v1a2 2 0 0 0 2 2h2a1 1 0 0 1 1 1v2.9a2 2 0 1 0 4 0V17a1 1 0 0 1 1-1h2a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1"/>
+          </svg>
+            <h6>Do you like to be creative?</h6>
+            <p>You don't have to be an artist, our AI will help you!</p>
+        </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="feature-card">
+      <div class="text-content">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#77ff00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 7 6.82 21.18a2.83 2.83 0 0 1-3.99-.01a2.83 2.83 0 0 1 0-4L17 3"/>
+              <path d="m16 2 6 6"/>
+              <path d="M12 16H4"/>
+          </svg>
+            <h6>Read About the Ingredients</h6>
+            <p>The space matter is confidential, but you can know all about the chemicals used!</p>
+        </div>
+    </div>
+
+      </div>
+      <a href="#about" class="btn-gradient">Get Started</a>
+      </div>
+
+  
+  <div class="image w-50">
+    <img src="./images/sectionPhoto2.png"   alt="">
+  </div>
+
+</div>
+
+    
+    
+    
+
+<div class="container section">
+  <h1>New Arrivals</h1>
+  <div id="image-slider-new" class="splide container">
+    <div class="splide__track ">
+        <ul class="splide__list ">
+            <li class="splide__slide">
+              <div class="card">
+              <div class="image_container">
+                <img src="../images/pill1.jpg" alt="" />
+              </div>
+              <div class="title">
+                <span>New brand name</span>
+              </div>
+              <div class="description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </div>
+              <div class="action">
+                <div class="price">
+                  <span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-baseline"><path d="M4 20h16"/><path d="m6 16 6-12 6 12"/><path d="M8 12h8"/></svg> 299</span>
+                </div>
+                <button class="cart-button">
+                  <svg
+                  class="cart-icon"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                    stroke-linejoin="round"
+                    stroke-linecap="round">
+                  </path>
+                </svg>
+                  <span>Add to Cart</span>
+                </button>
+              </div>
+            </div></li>
+            
+        </ul>
+    </div>
+</div>
+</div>
+
+
+    
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
@@ -147,7 +331,7 @@
                 >HarryPotter.com</a
               >
               is the official home of Harry Potter, Fantastic Beasts, and the
-              Wizarding World, formerly known as Pottermore.
+              Wizarding World, formerly knvvvvvvvvvvvvvvvvvvvvvvvvvvown as Pottermore.
             </p>
             <p>
               FOOTER TEXT MUST BE CHANGED!
@@ -171,6 +355,46 @@
     <script src="./js/navbar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+     <!-- Splide.js JavaScript -->
+     <script src="
+      https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
+      "></script>
+
+     <script>
+         document.addEventListener('DOMContentLoaded', function () {
+             new Splide('#image-slider', {
+                 type   : 'loop',    // Infinite loop mode
+                 perPage: 4,        // Show 3 slides at a time
+                 perMove: 2,        // Move 1 slide at a time
+                 autoplay: true,    // Enable autoplay
+                 interval: 3000,    // Change slide every 3 seconds
+                 gap: '20px',       // Space between slides
+                 padding: '50px',   // Padding around the slider
+                 pagination: false, // Disable pagination
+                 breakpoints: { 
+                     1024: { perPage: 2 }, // Show 2 slides on smaller screens
+                     768: { perPage: 1 , perMove: 1 , padding: '80px' ,gap: '40px' }  // Show 1 slide on mobile
+                 }
+             }).mount();
+         });
+         document.addEventListener('DOMContentLoaded', function () {
+             new Splide('#image-slider-new', {
+                 type   : 'loop',    // Infinite loop mode
+                 perPage: 4,        // Show 3 slides at a time
+                 perMove: 2,        // Move 1 slide at a time
+                 autoplay: true,    // Enable autoplay
+                 interval: 3000,    // Change slide every 3 seconds
+                 gap: '20px',       // Space between slides
+                 padding: '50px',   // Padding around the slider
+                 pagination: false, // Disable pagination
+                 breakpoints: { 
+                     1024: { perPage: 2 }, // Show 2 slides on smaller screens
+                     768: { perPage: 1 , perMove: 1 , padding: '80px' ,gap: '40px' }   // Show 1 slide on mobile
+                 }
+             }).mount();
+         });
+     </script>
   </body>
 </html>
+
 

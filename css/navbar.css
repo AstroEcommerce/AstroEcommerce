@@ -1,25 +1,43 @@
 /* navbar.css */
 .navnav {
-  background-color: var(--primary-color);
   min-height: 100px;
   text-align: center;
+  
+
+}
+.bottom-nav{
+  background-color: rgba(0, 9, 36, 0);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+.top-nav{
+  background-color: rgba(0, 9, 36, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
 
 }
 
 .navbar-dark {
-  background-color: var(--primary-color);
+  /* background-color: rgba(0, 9, 36, 0.6); */
   padding: 10px 0 !important;
+  
 }
+
 
 .btn-outline-light {
   border: none;
-  border-bottom: 1px solid rgb(109, 111, 121);
+  /* border-bottom: 1px solid rgb(109, 111, 121); */
   font-weight: 500;
-  color: var(--secondary-color);
+  /* color: var(--secondary-color); */
+  color: white;
 }
 
 .nav-link {
   position: relative;
+  color: white !important;
+  
 }
 .nav-link::after {
   content: '';
@@ -163,3 +181,9 @@
     font-size: 12px;
   }
 }
+
+.vector {
+  width: 20px;
+  height: 20px;
+}
+
