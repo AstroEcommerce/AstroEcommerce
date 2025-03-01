@@ -1,14 +1,18 @@
-global.css
+@import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
-  color: white;
+  color: white; 
   margin: 10px 0;
   text-align: center;
 }
 
 h1 {
   font-size: 2.986rem;
+  font-family: "Iceland", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 h2 {
