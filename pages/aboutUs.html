@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    .container {
+        margin-top: 100px;
+        /* background-color: #201f31; */
+        border: 1px solid #737083;
+        border-radius: 15px;
+        outline: 5px solid #201f31;
+    }
+    .text-color{
+        color: white;
+    }
+    video {
+        width: 520px;
+        height: 295px;
+        border : 1px solid #737083;
+        border-radius: 10px;
+    }
+    h3{
+        border-bottom: 2px solid;
+        display: inline;
+        padding-bottom: 10px;
+    }
+    .padding50px{
+        padding: 50px;
+    }
+    .padding10px{
+        padding: 10px;
+        width: 200px;
+        color: white;
+        text-align: center;
+    }
+    p, h3{
+        font-family: 'Roboto', sans-serif;
+    }
+    .widthHeight100{
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+    }
+    .div-MeetUs-group{
+        backdrop-filter: blur(10px); ;
+        border-radius: 10px;
+        margin-top: 25px;
+        width: max-content;
+    }
+    .div-MeetUs{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 200px;
+    }
+    .story-alignment{
+        width: 200px;
+        height: 200px;
+        border-radius: 10px;
+        margin-top: 20px;   
+    }
+    .text-story{
+        backdrop-filter: blur(10px);
+        margin-top: 20px;
+        font-size: 20px;
+        padding: 30px 20px 0 20px;
+    }
+    .div-story{
+        backdrop-filter: blur(30px);
+        padding: 15px;
+        border-radius: 8px;
+    }
+    .cta-container {
+        text-align: center;
+        backdrop-filter: blur(10px); /* Frosted glass effect */
+        padding: 40px;
+        border-radius: 15px;
+        margin-top: 50px;
+        width: fit-content;
+    }
+
+    .cta-container h2 {
+        font-size: 28px;
+        color: #fff;
+        margin-bottom: 10px;
+    }
+
+    .cta-container p {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background: repeating-linear-gradient(to right, #000150, #432553 );
+        color: #fff;
+        padding: 12px 25px;
+        font-size: 18px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .cta-button:hover {
+        background: repeating-linear-gradient(to right, #432553,  #000150);
+    }
+
+    @media (max-width: 1029px) {
+        .div-MeetUs-group{
+            width: auto;
+            /* width: 100%; */
+        } 
+    }
+    @media (max-width: 992px) {
+        .query992{
+            display: flex;
+            flex-direction: column;
+        } 
+    }
+    @media (max-width: 776px) {
+        video{
+            width: 450px;
+            height: 250px;
+        }
+        .widthHeight100{
+            width: 130px;
+            height: 130px;
+        }
+        .query776{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        } 
+    }
+    @media (max-width: 585px) {
+        video{
+            width: 300px;
+            height: 175px;
+        }
+       .text-story{
+           font-size: 12px;
+       }
+       .query585{
+        width: min-content;
+       }
+       .padding50px{
+           padding: 10px;
+       }
+        
+    }
+
+
+  </style>
+</head>
+<body style="background-image: url(/images/bg-aboutUs.jpg); background-size: cover;">
+
+    <div class="container d-flex flex-column query585">
+        <center><h1 class="text-color pt-5 pb-2">About Us</h1></center>
+
+        <div class="d-flex justify-content-center align-items-center padding50px query992">
+            <div class="container-fluid ">
+                    <h3 class="text-color ">Our Mission</h3>
+                        <p class="text-color fs-5 mt-5 mb-5 p-3 rounded-5" style="backdrop-filter: blur(10px);">At StarDust Elixirs, our mission is to unlock the hidden potential within every individual. We strive to bring the power of the cosmos into your hands, offering a unique experience that transforms ordinary people into extraordinary beings.</p>
+                    </p>
+            </div>
+            <div class="container-fluid d-flex justify-content-center align-items-center">
+                <video src="/images/ourStory.mp4" controls></video>
+            </div>
+        </div>
+
+        <div class=" padding50px">
+            <h3 class="text-color ">Meet the Team</h3>
+            
+           <div class="d-flex flex-wrap pt-3 justify-content-center align-items-center ms-5 div-MeetUs-group">
+            <div class="div-MeetUs">
+                <img class="widthHeight100" src="/images/laith.jpg" alt="">
+                <p class="padding10px">Dr. Laith, Lead Scientist</p>
+            </div>
+            <div class="div-MeetUs">
+                <img class="widthHeight100" src="/images/osama.jfif" alt="">
+                <p class="padding10px">Dr. Osama, AI & Systems Engineer</p>
+            </div>
+            <div class="div-MeetUs">
+                <img class="widthHeight100" src="/images/layan.png" alt="">
+                <p class="padding10px">Dr. Layan, Head of Development</p>
+            </div>
+            <div class="div-MeetUs">
+                <img class="widthHeight100" src="/images/ola.jfif" alt="">
+                <p class="padding10px">Dr. Ola, Chief Engineer</p>
+            </div>
+            <div class="div-MeetUs">
+                <img class="widthHeight100" src="/images/yousef.png" alt="">
+                <p class="padding10px">Dr. Yousef, Logistics & Customer Success</p>
+            </div>
+           </div>
+
+        </div>
+
+
+        <div>
+            <div class="padding50px">
+                <h3 class="text-color">Our Stroy</h3>
+                <div class="div-story">
+                    <div class="d-flex query776">
+                        <p class="text-color text-story">Three years ago, an old friend of ours, a scientist, returned from a groundbreaking mission in outer space. They returned with a treasure that took our breath away: a jar containing mysterious dust from an unknown planet! This extraordinary item became the centerpiece of our lab we never stopped  treating it with excitement and curiosity. </p> <img class="story-alignment" src="/images/outer_space.jpg">
+                    </div>
+                    <div class="d-flex query776">
+                        <img class="story-alignment" src="https://cdn.openart.ai/published/wsqRTjiBYFVtqv6b11GN/XRLala8c_4-tO_512.webp">
+                        <p class="text-color text-story">One day, while cleaning the jar a small mishap changed everything. Some of the precious dust accidentally spilled into a flask containing a complex mixture of chemicals.!  The reaction caused a small explosion that sent chills through our bodies. When the dust settled, we were left with an incredible collection of unique, shiny fragments.!</p>
+                    </div> 
+                    <div class="d-flex query776">
+                        <p class="text-color text-story">Since then, we were studying the characteristics of it, to our amazement, we discovered something phenomenal—these substances endowed individuals with superhuman powers! But the most remarkable part  was that no two superpowers were alike, even when created with the exact same formula.
+                        And that was how StarDust Elixirs was born! </p> <img class="story-alignment" src="/images/superPower.jpeg">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <center>
+            <div class="cta-container padding50px">
+                <h2>Ready to Discover Your Superpower?</h2>
+                <a href="shop.html" class="cta-button">Get Your Elixir Now</a>
+            </div>
+        </center>
+    </div>
+</body style="margin-bottom: 500px;">
+</html>

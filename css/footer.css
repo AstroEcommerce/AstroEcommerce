@@ -2,7 +2,6 @@
 .footer {
   color: #bdbdc5;
   padding: 40px 0;
-  border: 1px solid #bdbdc5; /* Border around the footer */
 }
 .footer a {
   color: #bdbdc5;
@@ -16,6 +15,11 @@
   padding: 20px;
   border-radius: 8px;
 }
+
+.footer h6 {
+  text-align: start ! important;
+}
+
 .social-icons a {
 
   margin: 0 10px;

@@ -10,8 +10,7 @@
 
 
 .category-solo{
-    /* background-color: rgb(08,22,42); */
-    background-color: rgb(39,23,39);
+
     width: 70px;
     height: 90px;
     display: flex;
@@ -19,18 +18,17 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    /* border: 1px solid #517f99; */
     border-radius: 3px;
     padding-top: 5px;
-    outline: 5px solid rgb(39,23,39);
+    outline: 5px solid rgb(13, 22, 47);
     margin-top: 60px;
+
     
 }
 
 .category-solo svg {
     width: 24px;
     height: 24px;
-    /* stroke: #517f99; */
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
@@ -46,46 +44,46 @@
     min-height: 100vh;
 }
 
+.container h1 {
+    color: white;
+    font-size: 40px;
+    text-align: left;
+
+}
+
 
 /* --------------------- card ------------------   */
   /* From Uiverse.io by MuhammadHasann */ 
 .card {
-    --bg-card: rgb(39,23,39);
-    --primary: #6d28d9;
-    --primary-800: #4c1d95;
-    --primary-shadow: #2e1065;
     --light: #fff;
-    --zinc-800: #18181b;
-    --bg-linear: linear-gradient(0deg, var(--primary) 50%, var(--light) 125%);
-    outline: 3px solid rgb(39,23,39);
-    border: 3px solid rgb(39,23,39);
+    /* outline: 3px solid rgb(13, 22, 47); */
+    /* border: 1px solid rgb(13, 22, 47); */
     position: relative;
-    /* background-image: url(../images/cardBg.jpg); */
-  
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-  
     padding: 1rem;
     width: 14rem;
-    background-color: var(--bg-card);
-  
+    background-color: rgb(13, 22, 47);
     border-radius: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   }
   
   .image_container {
     overflow: hidden;
     cursor: pointer;
-  
     position: relative;
     z-index: 5;
-  
     width: 100%;
-    height: 8rem;
+    aspect-ratio: 1/1;
     background-color: var(--primary-800);
-
     background-size: cover;
-
     border-radius: 0.5rem;
   }
   
@@ -98,17 +96,12 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-
-  
-   
     fill: var(--light);
   }
   
   .title {
     overflow: clip;
-  
     width: 100%;
-  
     font-size: 1rem;
     font-weight: 600;
     color: var(--light);
@@ -167,9 +160,10 @@
   }
   
   .price {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--light);
+    text-wrap: nowrap;
   }
   
   .cart-button {
@@ -178,16 +172,17 @@
     justify-content: center;
     align-items: center;
     gap: 0.25rem;
-    padding: 0.5rem;
-    width: 100%;
+    padding: 0.5rem .8rem;
+    width: fit-content;
     /* background-image: var(--bg-linear); */
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     font-weight: 500;
-    /* color: var(--light); */
+    color: white;
     text-wrap: nowrap;
-    border: 2px solid hsla(262, 83%, 58%, 0.5);
-    border-radius: 0.5rem;
-    box-shadow: inset 0 0 0.25rem 1px var(--light);
+    background-color: rgb(38, 46, 68);
+    border: 1px solid rgb(38, 46, 68);
+    border-radius: 1.5rem;
+    /* box-shadow: inset 0 0 0.25rem 1px var(--light); */
   }
   
   .cart-button .cart-icon {

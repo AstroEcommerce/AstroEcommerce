@@ -1,6 +1,6 @@
 /* variables.css */
 :root {
-  --primary-color: rgb(31, 18, 31);
+  --primary-color: rgb(0, 9, 36);
   --secondary-color: rgb(163, 163, 183);
   --accent-color: rgba(255, 255, 255, 0.1);
   --shop-color: rgb(187, 140, 177);
@@ -19,7 +19,7 @@
 
 body {
   background-color: var(--primary-color);
-  margin-top: 100px;
+  /* margin-top: 100px; */
   font-size: 16px !important;
 }
 
