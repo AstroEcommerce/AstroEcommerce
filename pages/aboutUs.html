@@ -9,21 +9,23 @@
     rel="stylesheet"
   />
   <style>
+    body{
+        background-color: #000924;
+        box-sizing: border-box;
+    }
     .container {
         margin-top: 100px;
-        /* background-color: #201f31; */
-        border: 1px solid #737083;
-        border-radius: 15px;
-        outline: 5px solid #201f31;
+    }
+    .div-video{
+        position: absolute;
+        left: 100px;
+        width: fit-content;
     }
     .text-color{
         color: white;
     }
     video {
-        width: 520px;
-        height: 295px;
-        border : 1px solid #737083;
-        border-radius: 10px;
+        width: 100%;
     }
     h3{
         border-bottom: 2px solid;
@@ -48,7 +50,6 @@
         border-radius: 50%;
     }
     .div-MeetUs-group{
-        backdrop-filter: blur(10px); ;
         border-radius: 10px;
         margin-top: 25px;
         width: max-content;
@@ -67,19 +68,26 @@
         margin-top: 20px;   
     }
     .text-story{
-        backdrop-filter: blur(10px);
         margin-top: 20px;
         font-size: 20px;
         padding: 30px 20px 0 20px;
     }
     .div-story{
-        backdrop-filter: blur(30px);
         padding: 15px;
         border-radius: 8px;
     }
+    .our-mission-div{
+        width: 330px;
+        background-color: #0d162f;
+        border-radius: 10px;
+        padding: 25px;
+    }
+    #our-mission{
+        /* background-color: #8b8b8b; */
+        margin-bottom: 50px;
+    }
     .cta-container {
         text-align: center;
-        backdrop-filter: blur(10px); /* Frosted glass effect */
         padding: 40px;
         border-radius: 15px;
         margin-top: 50px;
@@ -115,7 +123,6 @@
     @media (max-width: 1029px) {
         .div-MeetUs-group{
             width: auto;
-            /* width: 100%; */
         } 
     }
     @media (max-width: 992px) {
@@ -138,8 +145,16 @@
             flex-direction: column;
             align-items: center;
         } 
+        .our-mission-div{
+            padding: 15px;
+            width: 300px;
+        }
     }
     @media (max-width: 585px) {
+        #div3-divB{
+            flex-direction: column;
+            align-items: center;
+        }
         video{
             width: 300px;
             height: 175px;
@@ -159,24 +174,68 @@
 
   </style>
 </head>
-<body style="background-image: url(/images/bg-aboutUs.jpg); background-size: cover;">
+<body>
 
-    <div class="container d-flex flex-column query585">
-        <center><h1 class="text-color pt-5 pb-2">About Us</h1></center>
+        <div id="video" class="d-flex justify-content-center align-items-center query992">
 
-        <div class="d-flex justify-content-center align-items-center padding50px query992">
-            <div class="container-fluid ">
-                    <h3 class="text-color ">Our Mission</h3>
-                        <p class="text-color fs-5 mt-5 mb-5 p-3 rounded-5" style="backdrop-filter: blur(10px);">At StarDust Elixirs, our mission is to unlock the hidden potential within every individual. We strive to bring the power of the cosmos into your hands, offering a unique experience that transforms ordinary people into extraordinary beings.</p>
-                    </p>
+            <div class="d-flex justify-content-center align-items-center">
+                <video src="/images/ourStory.mp4" ></video>
             </div>
-            <div class="container-fluid d-flex justify-content-center align-items-center">
-                <video src="/images/ourStory.mp4" controls></video>
+
+            <div id="div1-divb" class="container-fluid div-video">
+                <h2 class="text-color div1-divb-h2">Innovating Tomorrow, Today</h2>
+                <p class="text-color"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, provident!</p>
+            </div>
+
+        </div>
+
+
+        <div id="our-story" class="container">
+            <div class="padding50px">
+                <center><h3 class="text-color">Our Stroy</h3></center>
+                <div class="div-story">
+                    <div class="d-flex query776">
+                        <p class="text-color text-story">Three years ago, an old friend of ours, a scientist, returned from a groundbreaking mission in outer space. They returned with a treasure that took our breath away: a jar containing mysterious dust from an unknown planet! This extraordinary item became the centerpiece of our lab we never stopped  treating it with excitement and curiosity. </p> <img class="story-alignment" src="/images/outer_space.jpg">
+                    </div>
+                    <div class="d-flex query776">
+                        <img class="story-alignment" src="https://cdn.openart.ai/published/wsqRTjiBYFVtqv6b11GN/XRLala8c_4-tO_512.webp">
+                        <p class="text-color text-story">One day, while cleaning the jar a small mishap changed everything. Some of the precious dust accidentally spilled into a flask containing a complex mixture of chemicals.!  The reaction caused a small explosion that sent chills through our bodies. When the dust settled, we were left with an incredible collection of unique, shiny fragments.!</p>
+                    </div> 
+                    <div class="d-flex query776">
+                        <p class="text-color text-story">Since then, we were studying the characteristics of it, to our amazement, we discovered something phenomenal—these substances endowed individuals with superhuman powers! But the most remarkable part  was that no two superpowers were alike, even when created with the exact same formula.
+                        And that was how StarDust Elixirs was born! </p> <img class="story-alignment" src="/images/superPower.jpeg">
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class=" padding50px">
-            <h3 class="text-color ">Meet the Team</h3>
+
+        <div id="our-mission" class="d-flex flex-column padding50px ">
+            <div id="div3-divA"  style="padding-bottom: 85px;">
+                <center><h3 class="text-color">Our Mission</h3></center>
+            </div>
+            <div id="div3-divB" class="d-flex gap-5 justify-content-around">
+                <div class="d-flex flex-column gap-2 our-mission-div">
+                    <i class="fa-solid fa-lightbulb fa-lg text-color mb-2"></i>
+                    <h5 class="text-color">Innovation First</h5>
+                    <p class="text-color">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, iusto doloribus aliquam laudantium eius ex.</p>
+                </div>
+                <div class="d-flex flex-column gap-2 our-mission-div">
+                    <i class="fa-solid fa-earth-americas fa-lg text-color mb-2"></i>
+                    <h5 class="text-color">Sustainability</h5>
+                    <p class="text-color">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, iusto doloribus aliquam laudantium eius ex.</p>
+                </div>
+                <div class="d-flex flex-column gap-2 our-mission-div">
+                    <i class="fa-solid fa-people-group fa-lg text-color mb-2"></i>
+                    <h5 class="text-color">Community Impact</h5>
+                    <p class="text-color">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, iusto doloribus aliquam laudantium eius ex.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="meet-the-team" class=" padding50px">
+            <center><h3 class="text-color ">Meet the Team</h3></center>
             
            <div class="d-flex flex-wrap pt-3 justify-content-center align-items-center ms-5 div-MeetUs-group">
             <div class="div-MeetUs">
@@ -204,24 +263,7 @@
         </div>
 
 
-        <div>
-            <div class="padding50px">
-                <h3 class="text-color">Our Stroy</h3>
-                <div class="div-story">
-                    <div class="d-flex query776">
-                        <p class="text-color text-story">Three years ago, an old friend of ours, a scientist, returned from a groundbreaking mission in outer space. They returned with a treasure that took our breath away: a jar containing mysterious dust from an unknown planet! This extraordinary item became the centerpiece of our lab we never stopped  treating it with excitement and curiosity. </p> <img class="story-alignment" src="/images/outer_space.jpg">
-                    </div>
-                    <div class="d-flex query776">
-                        <img class="story-alignment" src="https://cdn.openart.ai/published/wsqRTjiBYFVtqv6b11GN/XRLala8c_4-tO_512.webp">
-                        <p class="text-color text-story">One day, while cleaning the jar a small mishap changed everything. Some of the precious dust accidentally spilled into a flask containing a complex mixture of chemicals.!  The reaction caused a small explosion that sent chills through our bodies. When the dust settled, we were left with an incredible collection of unique, shiny fragments.!</p>
-                    </div> 
-                    <div class="d-flex query776">
-                        <p class="text-color text-story">Since then, we were studying the characteristics of it, to our amazement, we discovered something phenomenal—these substances endowed individuals with superhuman powers! But the most remarkable part  was that no two superpowers were alike, even when created with the exact same formula.
-                        And that was how StarDust Elixirs was born! </p> <img class="story-alignment" src="/images/superPower.jpeg">
-                    </div>
-                </div>
-            </div>
-        </div>
+        
 
         <center>
             <div class="cta-container padding50px">
@@ -229,6 +271,6 @@
                 <a href="shop.html" class="cta-button">Get Your Elixir Now</a>
             </div>
         </center>
-    </div>
-</body style="margin-bottom: 500px;">
+        <script src="https://kit.fontawesome.com/d24639e9bf.js" crossorigin="anonymous"></script>
+</body>
 </html>
