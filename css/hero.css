@@ -107,18 +107,21 @@ body{
 
 
 
+.text {
+  width: 65%; 
+}
 
 
 .image {
-  width: 50%; /* Ensure it takes 50% of the parent container */
+  width: 35%; 
   margin: 0 auto; /* Center it */
   display: flex;
-  justify-content: center; /* Center the image inside */
+  justify-content: flex-end; /* Center the image inside */
   align-items: center;
 }
 
 .image img {
-  width: 70%; /* Make the image fill its container */
+  width: 100%; /* Make the image fill its container */
   height: auto; /* Maintain aspect ratio */
   display: block; /* Remove extra space below the image */
   border-radius: 10px; /* Optional: Add rounded corners */
