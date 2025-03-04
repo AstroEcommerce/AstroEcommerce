@@ -49,13 +49,13 @@
           <!-- Icons (Wishlist, Cart, Account) -->
           <ul class="navbar-nav ms-auto align-items-center siteIcons">
             <li class="nav-item">
-              <a class="nav-link" href="#" title="Wishlist"><i class="fas fa-heart"></i></a>
+              <a class="nav-link" href="/wishlist" title="Wishlist"><i class="fas fa-heart"></i></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" title="Cart"><i class="fas fa-shopping-cart"></i></a>
+              <a class="nav-link" href="/cart" title="Cart"><i class="fas fa-shopping-cart"></i></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" title="Account"><i class="fas fa-user"></i></a>
+              <a class="nav-link" href="/user-profile" title="Account"><i class="fas fa-user"></i></a>
             </li>
             <li class="nav-item">
             <a href="auth" class="btn login-btn btn-primary">Login</a>
