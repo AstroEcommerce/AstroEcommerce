@@ -17,11 +17,6 @@ $router->get('/auth', 'AuthController@index' , 'auth.index');
 
 $router->get('/products/{id}', 'ProductController@item', 'product.item');
 
-
-
 $router->dispatch();
-
-
-
 
 ?>
