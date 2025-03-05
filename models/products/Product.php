@@ -17,13 +17,28 @@ class Product  extends Model
     
     
     
-    // public function all()
-    // {
-    //     $sql = "SELECT * FROM products";
-    //     $stmt = $this->conn->query($sql);
+    public function allData()
+    {
+            $sql = "SELECT products.*, categories.name as category FROM products 
+                INNER JOIN categories ON products.category_id = categories.id 
+                WHERE products.deleted = 0
+                ORDER BY products.id DESC";
+        return $this->query($sql); 
 
-    //     return $stmt->fetchAll();
-    // }
+    }
+    
+    public function getCategories()
+    {
+        return $this->query("SELECT * FROM categories ");
+    }
+    
+    public function softDelete($id)
+    {
+        return $this->update($id, 
+        ['deleted' => 1 ]);
+    }
+    
+    
     
     
     public function ten()

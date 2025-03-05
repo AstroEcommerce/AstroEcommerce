@@ -29,8 +29,9 @@
 
 <div class="hero">
       <div class="hero-content">
-        <h1>StarDust<span>- TEAM ONE -</span></h1>
-        <p class="hero-description">Unleash the power of innovation with StarDust. Join us on a journey to explore the unknown and create the future.</p>
+        <h1>Astro Cures<span>- XXX -</span></h1>
+        <p class="hero-description">Unlock Your True Potential. Elevate your abilities with Astro Cures' cutting-edge superpower pills. The future of human evolution starts here.
+        </p>
         <div class="hero-buttons">
           <a href="#about" class="btn btn-primary">Shop Now</a>
           <a href="#contact" class="btn btn-secondary">Learn More</a>
