@@ -50,8 +50,8 @@
       <div class="content">
         <header>
           <h1>Categories</h1>
-          <button class="add-category" title="Add a new category">
-            <i class="fas fa-plus"></i> Add Category
+          <button class="add-product" title="Add a new product">
+            <a href="/admin/categories/create" class="add-product-link"><i class="fas fa-plus"></i> Add Category</a>
           </button>
         </header>
 
@@ -60,28 +60,57 @@
           <table>
             <thead>
               <tr>
-                <th>Category ID</th>
+                <th>#</th>
+                <th>ID</th>
                 <th>Name</th>
-                <th>Description</th>
                 <th>Created</th>
+                <th>Updated</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>#401</td>
-                <td>Electronics</td>
-                <td>Devices and gadgets</td>
-                <td>2023-07-01</td>
-                <td>
-                  <button class="edit" title="Edit this category">
-                    <i class="fas fa-edit"></i>
-                  </button>
-                  <button class="delete" title="Delete this category">
-                    <i class="fas fa-trash"></i>
-                  </button>
-                </td>
-              </tr>
+            <?php if ( isset($categories) && !empty($categories)): ?>
+              <?php foreach ($categories as $key => $category): ?>
+                <tr>
+                    <td><?php echo $key + 1; ?></td>
+                    <td><?php echo $category['id']; ?></td>
+                    <td><?php echo $category['name']; ?></td>
+                    <td><?php echo $category['created_at']; ?></td>
+                    <td><?php echo $category['updated_at']; ?></td>
+                    <td>
+                        <button class="edit" title="Edit this product">
+                            <a href="/admin/categories/<?php echo $category['id']; ?>/edit" title="Edit this category">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                        </button>
+                        
+                        <!-- Delete Button -->
+                        <form id="deleteForm_<?php echo $category['id']; ?>" action="/admin/categories/<?php echo $category['id']; ?>" method="post">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="button" class="delete" title="Delete this category" onclick="showDeleteModal(<?php echo $category['id']; ?>)">
+                                <i class="fas fa-trash"></i>
+                            </button>
+
+                            <!-- Custom Pop-up (Modal) -->
+                            <div id="deleteModal_<?php echo $category['id']; ?>" class="modal">
+                                <div class="modal-content">
+                                    <p>Are you sure you want to delete <?= $category['id']; ?>?</p>
+                                    <div class="modal-buttons">
+                                        <button type="submit" onclick="confirmDelete(<?php echo $category['id']; ?>)">Sure</button>
+                                        <button type="button" onclick="closeDeleteModal(<?php echo $category['id']; ?>)">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+              <?php else: ?>
+                  <tr>
+                      <td colspan="12">No categories available.</td>
+                  </tr>
+              <?php endif; ?>
+
               <!-- Add more rows as needed -->
             </tbody>
           </table>
@@ -101,5 +130,24 @@
         </div>
       </div>
     </div>
+
+    <script>
+      // Show the delete confirmation modal for the selected category
+        function showDeleteModal(categoryId) {
+            document.getElementById('deleteModal_' + categoryId).style.display = 'flex';
+        }
+
+        // Close the delete confirmation modal for the selected category
+        function closeDeleteModal(categoryId) {
+            document.getElementById('deleteModal_' + categoryId).style.display = 'none';
+        }
+
+        // Confirm deletion and submit the form for the selected category
+        function confirmDelete(categoryId) {
+            document.getElementById('deleteForm_' + categoryId).submit();
+        }
+
+    </script>
+    
   </body>
 </html>

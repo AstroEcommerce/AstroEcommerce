@@ -51,25 +51,26 @@
         </header>
 
         <!-- Add Category Form -->
-        <form class="add-form">
+        <form class="add-form" action="/admin/categories/create" method="POST">
+
+        <?php
+          if (isset($errors) && !empty($errors)) {
+              foreach ($errors as $error) {
+                  echo '<li style="color:red">' . $error[0] . '</li> <br>';
+              }
+          }
+          ?>
+
           <div class="input-group">
             <label for="name"><i class="fas fa-list"></i> Category Name</label>
             <input
               type="text"
               id="name"
+              name="name"
+              value="<?php if (isset($name) && !empty($name)) echo $name; ?>"
               placeholder="Enter category name"
               required
             />
-          </div>
-          <div class="input-group">
-            <label for="description"
-              ><i class="fas fa-align-left"></i> Description</label
-            >
-            <textarea
-              id="description"
-              placeholder="Enter category description"
-              rows="4"
-            ></textarea>
           </div>
           <button type="submit" class="save-button">Add Category</button>
         </form>

@@ -51,16 +51,21 @@
         </header>
 
         <!-- Edit Category Form -->
-        <form class="edit-form">
+        <form class="edit-form" action="/admin/categories/<?php echo $id; ?>/edit" method="POST">
+
+        
+        <?php
+          if (isset($errors) && !empty($errors)) {
+              foreach ($errors as $error) {
+                  echo '<li style="color:red">' . $error[0] . '</li> <br>';
+              }
+          }
+          ?>
+
+          <input type="hidden" name="_method" value="PUT" />
           <div class="input-group">
-            <label for="name"><i class="fas fa-list"></i> Name</label>
-            <input type="text" id="name" value="Electronics" required />
-          </div>
-          <div class="input-group">
-            <label for="description"
-              ><i class="fas fa-align-left"></i> Description</label
-            >
-            <textarea id="description" rows="4">Devices and gadgets</textarea>
+            <label for="name" ><i class="fas fa-list"></i> Name</label>
+            <input type="text" id="name" name="name" value="<?php if (isset($category) && !empty($category)) echo $category[0]['name']; ?>" required />
           </div>
           <button type="submit" class="save-button">Save Changes</button>
         </form>
