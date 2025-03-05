@@ -82,6 +82,7 @@ body {
     width: 50%;
     border-radius: 10px;
 }
-path {
+
+.card1 path {
     color: #7d2ae8;
  }

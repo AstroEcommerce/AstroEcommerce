@@ -60,6 +60,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
+    padding-bottom: 60px;
 }
 
 .container h1 {
@@ -334,3 +335,8 @@ input[type="range"]::-ms-fill-upper {
   border-radius: 5px;
 }
 
+@media (max-width: 768px) {
+  .cards {
+    margin-top: 30px;
+  }
+}
