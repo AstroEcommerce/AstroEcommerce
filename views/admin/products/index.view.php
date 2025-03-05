@@ -77,47 +77,49 @@
             </thead>
             <tbody>
               <?php if (!empty($products)): ?>
-                  <?php foreach ($products as $key => $product): ?>
-                      <tr>
-                          <td><?php echo $key + 1; ?></td>
-                          <td><?php echo $product['id']; ?></td>
-                          <td><img src="/public/images/products/<?php echo $product['image_url']; ?>" alt="product" width="50" /></td>
-                          <td><?php echo $product['name']; ?></td>
-                          <td><?php echo $product['description']; ?></td>
-                          <td>$<?php echo $product['price']; ?></td>
-                          <td><?php echo $product['stock']; ?></td>
-                          <td><?php echo $product['duration']; ?> days</td>
-                          <td><?php echo $product['power_level']; ?></td>
-                          <td><?php echo $product['category']; ?></td>
-                          <td><?php echo $product['created_at']; ?></td>
-                          <td><?php echo $product['updated_at']; ?></td>
-                          <td>
-                              <button class="edit" title="Edit this product">
-                                  <a href="/admin/products/<?php echo $product['id']; ?>/edit" title="Edit this product">
-                                      <i class="fas fa-edit"></i>
-                                  </a>
+                <?php foreach ($products as $key => $product): ?>
+                  <tr>
+                      <td><?php echo $key + 1; ?></td>
+                      <td><?php echo $product['id']; ?></td>
+                      <td><img src="/public/images/products/<?php echo $product['image_url']; ?>" alt="product" width="50" /></td>
+                      <td><?php echo $product['name']; ?></td>
+                      <td><?php echo $product['description']; ?></td>
+                      <td>$<?php echo $product['price']; ?></td>
+                      <td><?php echo $product['stock']; ?></td>
+                      <td><?php echo $product['duration']; ?> days</td>
+                      <td><?php echo $product['power_level']; ?></td>
+                      <td><?php echo $product['category']; ?></td>
+                      <td><?php echo $product['created_at']; ?></td>
+                      <td><?php echo $product['updated_at']; ?></td>
+                      <td>
+                          <button class="edit" title="Edit this product">
+                              <a href="/admin/products/<?php echo $product['id']; ?>/edit" title="Edit this product">
+                                  <i class="fas fa-edit"></i>
+                              </a>
+                          </button>
+                          
+                          <!-- Delete Button -->
+                          <form id="deleteForm_<?php echo $product['id']; ?>" action="/admin/products/<?php echo $product['id']; ?>" method="post">
+                              <input type="hidden" name="_method" value="DELETE">
+                              <button type="button" class="delete" title="Delete this product" onclick="showDeleteModal(<?php echo $product['id']; ?>)">
+                                  <i class="fas fa-trash"></i>
                               </button>
-                              <!-- Delete Button -->
-                                <form id="deleteForm" action="/admin/products/<?php echo $product['id']; ?>" method="post">
-                                  <input type="hidden" name="_method" value="DELETE">
-                                  <button type="button" class="delete" title="Delete this product" onclick="showDeleteModal()">
-                                    <i class="fas fa-trash"></i>
-                                  </button>
-                                </form>
+                          </form>
 
-                                <!-- Custom Pop-up (Modal) -->
-                                <div id="deleteModal" class="modal">
-                                  <div class="modal-content">
-                                    <p>Are you sure you want to delete this product?</p>
-                                    <div class="modal-buttons">
-                                      <button type="button" onclick="confirmDelete()">Sure</button>
-                                      <button type="button" onclick="closeDeleteModal()">Cancel</button>
-                                    </div>
+                          <!-- Custom Pop-up (Modal) -->
+                          <div id="deleteModal_<?php echo $product['id']; ?>" class="modal">
+                              <div class="modal-content">
+                                  <p>Are you sure you want to delete "<?php echo $product['name']; ?>"?</p>
+                                  <div class="modal-buttons">
+                                      <button type="button" onclick="confirmDelete(<?php echo $product['id']; ?>)">Sure</button>
+                                      <button type="button" onclick="closeDeleteModal(<?php echo $product['id']; ?>)">Cancel</button>
                                   </div>
-                                </div>
-                          </td>
-                      </tr>
+                              </div>
+                          </div>
+                      </td>
+                  </tr>
                   <?php endforeach; ?>
+
               <?php else: ?>
                   <tr>
                       <td colspan="12">No products available.</td>
@@ -147,20 +149,21 @@
     
     
     <script>
-      // Show the delete confirmation modal
-      function showDeleteModal() {
-        document.getElementById('deleteModal').style.display = 'flex';
-      }
+      // Show the delete confirmation modal for the selected product
+function showDeleteModal(productId) {
+    document.getElementById('deleteModal_' + productId).style.display = 'flex';
+}
 
-      // Close the delete confirmation modal
-      function closeDeleteModal() {
-        document.getElementById('deleteModal').style.display = 'none';
-      }
+// Close the delete confirmation modal for the selected product
+function closeDeleteModal(productId) {
+    document.getElementById('deleteModal_' + productId).style.display = 'none';
+}
 
-      // Confirm deletion and submit the form
-      function confirmDelete() {
-        document.getElementById('deleteForm').submit();
-      }
+// Confirm deletion and submit the form for the selected product
+function confirmDelete(productId) {
+    document.getElementById('deleteForm_' + productId).submit();
+}
+
     </script>
     
   </body>

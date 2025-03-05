@@ -67,7 +67,10 @@ $router->delete('/admin/products/{id}', 'ProductsController@delete', 'admin.prod
 
 $router->get('/admin/categories', 'CategoriesController@index', 'admin.categories.index');
 $router->get('/admin/categories/create', 'CategoriesController@createCategory', 'admin.categories.create');
+$router->post('/admin/categories/create', 'CategoriesController@storeCategory', 'admin.categories.store');
 $router->get('/admin/categories/{id}/edit', 'CategoriesController@editCategory', 'admin.categories.edit');
+$router->put('/admin/categories/{id}/edit', 'CategoriesController@update', 'admin.categories.update');
+$router->delete('/admin/categories/{id}', 'CategoriesController@delete', 'admin.categories.delete');
 
 
 

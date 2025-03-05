@@ -1,5 +1,11 @@
 body {
+<<<<<<< HEAD:css/product.css
+    background-color: #0d0b14;
+    
+    color: white;
+=======
     margin-top: 110px !important;
+>>>>>>> 10c82edc9f38306a828fb4b59290c5947108aed1:public/css/product.css
 }
 
 @media (max-width: 768px) {
@@ -14,7 +20,7 @@ body {
 
 
 .product-image-container {
-    background-color: #1f2937;
+    background-color: #141024;
     border-radius: 10px;
     padding: 20px;
     width: 100%;
@@ -37,8 +43,13 @@ body {
     max-width: 100%;
     border-radius: 10px;
 }
+<<<<<<< HEAD:css/product.css
+.card {
+    background-color: #141024;
+=======
 .card1 {
     background-color: #111827;
+>>>>>>> 10c82edc9f38306a828fb4b59290c5947108aed1:public/css/product.css
     border-radius: 10px;
     padding: 20px;
 }
