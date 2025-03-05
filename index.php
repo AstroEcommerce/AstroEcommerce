@@ -38,6 +38,7 @@ $router->get('/checkout', 'CheckoutController@index', 'checkout.index');
 $router->get('/products/{id}', 'ProductController@item', 'product.item');
 
 
+  
 // admin routes
 $router->get('/admin', 'LoginController@index', 'admin.auth.login');
 $router->get('/admin/dashboard', 'DashboardController@index', 'admin.dashboard.index');
@@ -70,9 +71,7 @@ $router->get('/admin/categories/{id}/edit', 'CategoriesController@editCategory',
 
 
 
+
 $router->dispatch();
-
-
-
 
 ?>
