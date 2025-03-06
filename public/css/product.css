@@ -1,5 +1,7 @@
 body {
-    margin-top: 110px !important;
+    background-color: #0d0b14;
+    margin-top: 112px !important;
+    color: white;
 }
 
 @media (max-width: 768px) {
@@ -14,7 +16,7 @@ body {
 
 
 .product-image-container {
-    background-color: #1f2937;
+    background-color: #141024;
     border-radius: 10px;
     padding: 20px;
     width: 100%;
@@ -37,8 +39,8 @@ body {
     max-width: 100%;
     border-radius: 10px;
 }
-.card1 {
-    background-color: #111827;
+.card {
+    background-color: #141024;
     border-radius: 10px;
     padding: 20px;
 }
@@ -71,6 +73,7 @@ body {
     width: 50%;
     border-radius: 10px;
 }
-path {
+
+.card1 path {
     color: #7d2ae8;
  }

@@ -14,7 +14,11 @@
 }
 
 body {
+<<<<<<< HEAD:css/login.css
+	background:#0d0b14;
+=======
 	background: rgba(0, 9, 36, 1);
+>>>>>>> 10c82edc9f38306a828fb4b59290c5947108aed1:public/css/login.css
 	display: flex;
 	justify-content: center;
 	align-items: center;
