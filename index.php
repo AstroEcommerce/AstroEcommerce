@@ -40,7 +40,12 @@ $router->get('/products/{id}', 'ProductController@item', 'product.item');
 
   
 // admin routes
-$router->get('/admin', 'LoginController@index', 'admin.auth.login');
+
+
+$router->get('/admin', 'LoginController@index', 'admin.auth.loginPage');
+$router->post('/admin', 'LoginController@login', 'admin.auth.login');
+$router->post('/admin/logout', 'LoginController@logout', 'admin.auth.logout');
+
 $router->get('/admin/dashboard', 'DashboardController@index', 'admin.dashboard.index');
 
 $router->get('/admin/orders', 'OrdersController@index', 'admin.orders.index');
@@ -52,7 +57,11 @@ $router->get('/admin/users/{id}/edit', 'UsersController@editUser', 'admin.users.
 
 $router->get('/admin/admins', 'AdminsController@index', 'admin.admins.index');
 $router->get('/admin/admins/create', 'AdminsController@createAdmin', 'admin.admins.create');
+$router->post('/admin/admins/create', 'AdminsController@store', 'admin.admins.store');
 $router->get('/admin/admins/{id}/edit', 'AdminsController@editAdmin', 'admin.admins.edit');
+$router->put('/admin/admins/{id}/edit', 'AdminsController@update', 'admin.admins.update');
+$router->put('/admin/admins/{id}/edit/password', 'AdminsController@updatePassword', 'admin.admins.updatePassword');
+$router->delete('/admin/admins/{id}', 'AdminsController@delete', 'admin.admins.delete');
 
 
 

@@ -1,7 +1,8 @@
 <?php
 
-include_once './controllers/Controller.php';
-class UsersController extends Controller
+include_once './controllers/admin/BaseAdmin.php';
+
+class UsersController extends BaseAdmin
 {
     
     

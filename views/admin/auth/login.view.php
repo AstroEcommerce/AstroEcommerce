@@ -18,7 +18,7 @@
           <h2>Admin Dashboard</h2>
           <p>Please log in to access the admin panel</p>
         </div>
-        <form class="login-form">
+        <form class="login-form" action="/admin" method="post">
           <div class="input-group">
             <label for="email"
               ><i class="fas fa-envelope"></i> Admin Email</label
@@ -26,18 +26,26 @@
             <input
               type="email"
               id="email"
+              name="email"
               placeholder="Enter your admin email"
               required
             />
+            <?php if (isset($emailError)): ?>
+              <span style="color: red;"><?= $emailError; ?></span>
+            <?php endif; ?>
           </div>
           <div class="input-group">
             <label for="password"><i class="fas fa-lock"></i> Password</label>
             <input
               type="password"
               id="password"
+              name="password"
               placeholder="Enter your password"
               required
             />
+            <?php if (isset($passwordError)): ?>
+                <span style="color: red;"><?= $passwordError; ?></span>
+              <?php endif; ?>
           </div>
           <button type="submit" class="login-button">Log In</button>
         </form>

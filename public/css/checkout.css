@@ -1,34 +1,4 @@
 body {
-<<<<<<< HEAD
-    background: linear-gradient(180deg, #0d0125, #3a1b63);
-    color: white !important;
-}
-.container {
-    max-width: 900px;
-}
-.card {
-    background-color: #16112e;
-    border: none;
-}
-.form-control {
-    background-color: #4b2d86;
-    color: rgb(0, 0, 0) !important;
-    border: none;
-}
-.btn {
-    background-color: #a46be3;
-}
-.btn:hover {
-    background-color: #8e54d9;
-}
-.h5, h5 {
-    color:#a46be3;
-}
-p {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    color: white;
-=======
   background-color: black !important;
   color: white !important;
   margin-top: 110px !important;
@@ -123,5 +93,4 @@ p {
   .reverse {
       flex-direction: column-reverse !important; 
   }
->>>>>>> 39a67d6171818a173a5e3b117f0e65d8eeb99fe4
 }

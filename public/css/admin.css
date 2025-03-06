@@ -722,3 +722,18 @@ button.edit:hover, button.delete:hover {
 .modal-buttons button:last-child:hover {
   background-color: #777; /* Lighter gray on hover */
 }
+
+td:last-child .actions {
+  display: flex;
+  flex-wrap: wrap;
+}
+td:last-child .actions button {
+  margin-bottom: 5px;
+}
+
+.logout {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  width: 100%;
+}

@@ -1,9 +1,9 @@
 <?php
 
-include_once './controllers/Controller.php';
+include_once './controllers/admin/BaseAdmin.php';
 include_once './models/Category.php';
 
-class CategoriesController extends Controller
+class CategoriesController extends BaseAdmin
 {
     
     
@@ -69,8 +69,7 @@ class CategoriesController extends Controller
     {
         $category = $this->model('category');
         $category->softDelete($id);
-        var_dump($id);
-        // $this->redirect('/admin/categories');
+        $this->redirect('/admin/categories');
     }
 
 

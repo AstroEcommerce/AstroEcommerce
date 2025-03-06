@@ -1,9 +1,10 @@
 <?php
 
-include_once './controllers/Controller.php';
+include_once './controllers/admin/BaseAdmin.php';
+
 include_once './models/products/Product.php';
 
-class ProductsController extends Controller
+class ProductsController extends BaseAdmin
 {
     
     

@@ -30,12 +30,17 @@ class Controller
     /**
      * Initialize session if it hasn't been started
      */
-    protected function initializeSession()
+    public function initializeSession()
     {
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
     }
+    
+
+    
+    
+
 
     /**
      * Render a view with the given data
@@ -272,6 +277,35 @@ class Controller
                     case 'alphanumeric':
                         if (!ctype_alnum($fieldValue)) {
                             $errors[$field][] = "The {$field} must contain only letters and numbers.";
+                        }
+                        break;
+
+                    case 'password':
+                        if (strlen($fieldValue) < 8) {
+                            $errors[$field][] = "The {$field} must be at least 8 characters.";
+                        }
+
+                        if (!preg_match('/[A-Z]/', $fieldValue)) {
+                            $errors[$field][] = "The {$field} must contain at least one uppercase letter.";
+                        }
+
+                        if (!preg_match('/[a-z]/', $fieldValue)) {
+                            $errors[$field][] = "The {$field} must contain at least one lowercase letter.";
+                        }
+
+                        if (!preg_match('/\d/', $fieldValue)) {
+                            $errors[$field][] = "The {$field} must contain at least one number.";
+                        }
+
+                        if (!preg_match('/[^A-Za-z0-9]/', $fieldValue)) {
+                            $errors[$field][] = "The {$field} must contain at least one special character.";
+                        }
+
+                        break;
+
+                    case 'match':
+                        if ($fieldValue !== $data[$ruleParam]) {
+                            $errors[$field][] = "The {$field} must match the {$ruleParam}.";
                         }
                         break;
                 }
