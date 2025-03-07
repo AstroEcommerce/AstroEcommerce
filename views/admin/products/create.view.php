@@ -26,7 +26,7 @@
 
 
       <!-- Add Product Form -->
-      <form class="add-form" action="/admin/products/create" method="POST">
+      <form class="add-form" action="/admin/products/create" method="POST" enctype="multipart/form-data">
 
         <?php
         if (isset($errors) && !empty($errors)) {
@@ -107,7 +107,7 @@
         <div class="input-group">
           <label for="image-url"><i class="fas fa-image"></i> Image URL</label>
           <input
-            type="text"
+            type="file"
             id="image-url"
             name="image_url"
             value="<?php if (isset($values) && !empty($values)) echo $values['image_url']; ?>"

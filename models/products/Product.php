@@ -43,14 +43,13 @@ class Product  extends Model
     
     public function ten()
     {
-        return $this->query("SELECT * FROM products LIMIT 10");
+        return $this->query("SELECT * FROM products WHERE deleted = 0 LIMIT 10 ");
     }
     
     public function lastTen()
     {
-        return $this->query("SELECT * FROM products ORDER BY id DESC LIMIT 10");
+        return $this->query("SELECT * FROM products WHERE deleted = 0 ORDER BY id DESC LIMIT 10");
     }
-    
     
     public function item($id)
     {

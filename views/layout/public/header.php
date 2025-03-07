@@ -55,10 +55,18 @@
               <a class="nav-link" href="/cart" title="Cart"><i class="fas fa-shopping-cart"></i></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/user-profile" title="Account"><i class="fas fa-user"></i></a>
+                <?php if (isset($_SESSION['user'])): ?>
+                <a class="nav-link" href="/profile/<?php echo $_SESSION['user']['id']; ?>" title="Account"><i class="fas fa-user"></i></a>
+                <?php endif; ?>
             </li>
             <li class="nav-item">
-            <a href="auth" class="btn login-btn btn-primary">Login</a>
+            <?php if (isset($_SESSION['user']) && $_SESSION['user']): ?>
+              <form action="/auth/logout" method="post">
+              <button type="submit" class="btn login-btn btn-primary">Logout</button>
+              </form>
+            <?php else: ?>
+              <a href="/auth/login" class="btn login-btn btn-primary">Login</a>
+            <?php endif; ?>
             </li>
           </ul>
         </div>
@@ -73,16 +81,15 @@
             </button>
             <div class="category-slider-container flex-grow-1 mx-2">
               <div class="category-slider">
-                <a href="#" class="btn btn-outline-light mx-1">Physical Enhancements</a>
-                <a href="#" class="btn btn-outline-light mx-1">Elemental Control</a>
-                <a href="#" class="btn btn-outline-light mx-1">Mental and Psychic Abilities</a>
-                <a href="#" class="btn btn-outline-light mx-1">Transformation and Shapeshifting</a>
-                <a href="#" class="btn btn-outline-light mx-1">Dimensional and Spatial Manipulation</a>
-                <a href="#" class="btn btn-outline-light mx-1">Biological and Healing Powers</a>
-                <a href="#" class="btn btn-outline-light mx-1">Stealth and Invisibility</a>
-                <a href="#" class="btn btn-outline-light mx-1">Animal and Nature-Based Powers</a>
-                <a href="#" class="btn btn-outline-light mx-1">Memory and Knowledge-Based Powers</a>
-                <a href="#" class="btn btn-outline-light mx-1">Category 10</a>
+                <a href="#" class="btn btn-outline-light mx-1">Physical</a>
+                <a href="#" class="btn btn-outline-light mx-1">Elemental</a>
+                <a href="#" class="btn btn-outline-light mx-1">Mental and Psychic</a>
+                <a href="#" class="btn btn-outline-light mx-1">Transformation</a>
+                <a href="#" class="btn btn-outline-light mx-1">Dimensional Manipulation</a>
+                <a href="#" class="btn btn-outline-light mx-1">Biological Powers</a>
+                <a href="#" class="btn btn-outline-light mx-1">Invisibility</a>
+                <a href="#" class="btn btn-outline-light mx-1">Nature-Based Powers</a>
+                <a href="#" class="btn btn-outline-light mx-1">Memory and Knowledge</a>
               </div>
             </div>
             <button title="Scroll Right" class="btn btn-outline-light btn-sm scroll-right">
