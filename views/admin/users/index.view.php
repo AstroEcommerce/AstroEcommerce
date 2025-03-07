@@ -11,6 +11,8 @@
 </head>
 
 <body>
+
+
   <div class="dashboard">
     <!-- Sidebar -->
     <?php include_once './views/layout/admin/sidebar.php'; ?>
@@ -19,9 +21,6 @@
     <div class="content">
       <header>
         <h1>Users</h1>
-        <button class="add-user" title="Add a new user">
-          <i class="fas fa-plus"></i> Add User
-        </button>
       </header>
 
       <!-- Users Table -->
@@ -29,32 +28,55 @@
         <table>
           <thead>
             <tr>
-              <th>User ID</th>
+              <th>#</th>
               <th>Name</th>
               <th>Email</th>
-              <th>Role</th>
-              <th>Joined</th>
+              <th>Mobile</th>
+              <th>Created</th>
+              <th>Updated</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>#101</td>
-              <td>John Doe</td>
-              <td>john@example.com</td>
-              <td>Customer</td>
-              <td>2023-09-15</td>
-              <td>
-                <button class="edit" title="Edit this user">
-                  <a href="/admin/users/101/edit"><i class="fas fa-edit"></i></a>
-                </button>
-                <button class="delete" title="Delete this user">
-                  <i class="fas fa-trash"></i>
-                </button>
-              </td>
-            </tr>
-            <!-- Add more rows as needed -->
-          </tbody>
+            <?php if (isset($users) && !empty($users)): ?>
+              <?php foreach ($users as $key => $user) : ?>
+              <tr>
+                  <td><?= $key + 1 ?></td>
+                  <td><?= $user['name'] ?></td>
+                  <td><?= $user['email'] ?></td>
+                  <td><?= $user['mobile'] ?></td>
+                  <td><?= $user['created_at'] ?></td>
+                  <td><?= $user['updated_at'] ?></td>
+                  <td>
+                      <div class="actions">
+
+                        <!-- Delete Button -->
+                        <form id="deleteForm_<?php echo $user['id']; ?>" action="/admin/users/<?php echo $user['id']; ?>" method="post">
+                          <input type="hidden" name="_method" value="DELETE">
+                          <button type="button" class="delete" title="Delete this user" onclick="showDeleteModal(<?php echo $user['id']; ?>)">
+                            <i class="fas fa-trash"></i>
+                          </button>
+                        </form>
+                        <!-- Custom Pop-up (Modal) -->
+                        <div id="deleteModal_<?php echo $user['id']; ?>" class="modal">
+                          <div class="modal-content">
+                            <p>Are you sure you want to delete "<?php echo $user['name']; ?>"?</p>
+                            <div class="modal-buttons">
+                              <button type="button" onclick="confirmDelete(<?php echo $user['id']; ?>)">Sure</button>
+                              <button type="button" onclick="closeDeleteModal(<?php echo $user['id']; ?>)">Cancel</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+              </tr>
+              <?php endforeach; ?>
+              <?php else: ?>
+                <tr>
+                  <td colspan="8">No users found.</td>
+                </tr>
+              <?php endif; ?>
+            </tbody>
         </table>
       </div>
 
@@ -72,6 +94,24 @@
       </div>
     </div>
   </div>
+
+  
+  <script>
+    // Show the delete confirmation modal for the selected product
+    function showDeleteModal(productId) {
+      document.getElementById('deleteModal_' + productId).style.display = 'flex';
+    }
+
+    // Close the delete confirmation modal for the selected product
+    function closeDeleteModal(productId) {
+      document.getElementById('deleteModal_' + productId).style.display = 'none';
+    }
+
+    // Confirm deletion and submit the form for the selected product
+    function confirmDelete(productId) {
+      document.getElementById('deleteForm_' + productId).submit();
+    }
+  </script>
 </body>
 
 </html>

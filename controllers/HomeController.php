@@ -26,10 +26,11 @@ class HomeController extends Controller
     
     public function index()
     {
+        
         $bestSellers = $this->bestSellers();
         $newArrivals = $this->newArrivals();
         // require_once './views/home/index.view.php';
-        $this->render('public.pages.home', ['bestSellers' => $bestSellers , 'newArrivals' => $newArrivals]);
+        $this->render('public.pages.home', ['bestSellers' => $bestSellers , 'newArrivals' => $newArrivals ]);
     }
 
 }

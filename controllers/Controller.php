@@ -25,6 +25,7 @@ class Controller
     {
         // Initialize common controller resources
         $this->initializeSession();
+        
     }
 
     /**
@@ -273,6 +274,11 @@ class Controller
                             $errors[$field][] = "The {$field} must contain only letters.";
                         }
                         break;
+                    case 'alphaSpace':
+                        if (!preg_match('/^[a-zA-Z]+(?:\s[a-zA-Z]+)*$/', $fieldValue)) {
+                            $errors[$field][] = "The {$field} must contain only letters and spaces.";
+                        }
+                        break;
 
                     case 'alphanumeric':
                         if (!ctype_alnum($fieldValue)) {
@@ -308,6 +314,34 @@ class Controller
                             $errors[$field][] = "The {$field} must match the {$ruleParam}.";
                         }
                         break;
+
+                    case 'date':
+                        // Validate date format (YYYY-MM-DD)
+                        if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $fieldValue)) {
+                            $errors[$field][] = "The {$field} must be a valid date in the format YYYY-MM-DD.";
+                        } else {
+                            // Check if the date is valid (e.g., not February 30)
+                            $dateParts = explode('-', $fieldValue);
+                            if (!checkdate($dateParts[1], $dateParts[2], $dateParts[0])) {
+                                $errors[$field][] = "The {$field} is not a valid date.";
+                            }
+                        }
+                        break;
+    
+                    case 'date_before':
+                        // Validate that the date is before a specific date
+                        if (strtotime($fieldValue) >= strtotime($ruleParam)) {
+                            $errors[$field][] = "The {$field} must be before {$ruleParam}.";
+                        }
+                        break;
+    
+                    case 'date_after':
+                        // Validate that the date is after a specific date
+                        if (strtotime($fieldValue) <= strtotime($ruleParam)) {
+                            $errors[$field][] = "The {$field} must be after {$ruleParam}.";
+                        }
+                        break;
+        
                 }
             }
         }

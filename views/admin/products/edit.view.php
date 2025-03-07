@@ -23,7 +23,7 @@
       </header>
 
       <!-- Edit Product Form -->
-      <form class="edit-form" action="/admin/products/<?php echo $id; ?>/edit" method="POST">
+      <form class="edit-form" action="/admin/products/<?php echo $id; ?>/edit" method="POST" enctype="multipart/form-data">
 
         <input type="hidden" name="_method" value="PUT" />
 
@@ -104,15 +104,12 @@
           </select>
         </div>
         <div class="input-group">
-          <label for="image-url"><i class="fas fa-image"></i> Image URL</label>
-          <input
-            type="text"
-            id="image-url"
-            name="image_url"
-            value="<?php if (isset($product) && !empty($product)) echo $product['image_url']; ?>"
-            placeholder="Enter image URL"
-            required />
-        </div>
+        <label for="image-url"><i class="fas fa-image"></i> Image</label>
+        <input type="file" id="image-url" name="image_url" />
+        <?php if (!empty($product['image_url'])): ?>
+            <br><img src="/public/images/products/<?php echo htmlspecialchars($product['image_url']); ?>" alt="Current Image" width="100">
+        <?php endif; ?>
+      </div>
         <button type="submit" class="save-button">Save Changes</button>
       </form>
     </div>
