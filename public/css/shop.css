@@ -119,6 +119,18 @@
     fill: var(--light);
   }
   
+  .love-icon{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 123456789;
+}
+
+  .love-icon i:hover {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+  }
+  
   .title {
     overflow: hidden;
     width: 100%;
@@ -334,6 +346,8 @@ input[type="range"]::-ms-fill-upper {
   background: rgb(255, 255, 255); /* Upper part of the track */
   border-radius: 5px;
 }
+
+
 
 @media (max-width: 768px) {
   .cards {

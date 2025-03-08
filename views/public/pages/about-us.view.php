@@ -126,7 +126,7 @@
         <center>
             <div class="cta-container padding50px">
                 <h2>Ready to Discover Your Superpower?</h2>
-                <a href="shop.html" class="cta-button">Get Your Elixir Now</a>
+                <a href="/shop" class="cta-button">Get Your Elixir Now</a>
             </div>
         </center>
         

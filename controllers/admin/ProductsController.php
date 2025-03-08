@@ -20,18 +20,48 @@ class ProductsController extends BaseAdmin
         $name = $_POST['name'] ?? null;
         $price = $_POST['price'] ?? null;
         $description = $_POST['description'] ?? null;
-        $image_url = $_POST['image_url'] ?? null;
+        // $image_url = $_POST['image_url'] ?? null;
         $duration = $_POST['duration'] ?? null;
         $power_level = $_POST['power_level'] ?? null;
         $stock = $_POST['stock'] ?? null;
         $category_id = $_POST['category_id'] ?? null;
+        
+        // Handle file upload
+        $image_url = null;
+        if (isset($_FILES['image_url']) && $_FILES['image_url']['error'] === 0) {
+            $uploadDir = './public/images/products/'; 
+
+            // Ensure directory exists
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir, 0777, true);
+            }
+
+            $fileTmpPath = $_FILES['image_url']['tmp_name'];
+            $fileOriginalName = $_FILES['image_url']['name'];
+            $fileExtension = pathinfo($fileOriginalName, PATHINFO_EXTENSION);
+
+            // Generate a unique filename to prevent conflicts
+            $newFileName = uniqid("img_", true) . '.' . $fileExtension;
+            $destinationPath = $uploadDir . $newFileName;
+
+            // Move the file to the target directory
+            if (move_uploaded_file($fileTmpPath, $destinationPath)) {
+                $image_url = $newFileName; // Store only the filename in the database
+            } else {
+                $errors['image_url'] = "File upload failed.";
+            }
+        } else {
+            $errors['image_url'] = "Image is required.";
+        }
+        
+        
         
         
         $errors = $this->validate([
             'name' => 'required|min:3',
             'price' => 'required|numeric',
             'description' => 'required|min:5',
-            'image_url' => 'required',
+            // 'image_url' => 'required',
             'duration' => 'required|numeric',
             'power_level' => 'required',
             'stock' => 'required|numeric',
@@ -71,6 +101,10 @@ class ProductsController extends BaseAdmin
     
     public function update($id)
     {
+        
+        $product = $this->model('product')->find($id);
+        
+        
         $name = $_POST['name'] ?? null;
         $price = $_POST['price'] ?? null;
         $description = $_POST['description'] ?? null;
@@ -80,12 +114,42 @@ class ProductsController extends BaseAdmin
         $stock = $_POST['stock'] ?? null;
         $category_id = $_POST['category_id'] ?? null;
         
+        // Handle file upload
+    $image_url = $product['image_url']; // Keep the old image by default
+    if (isset($_FILES['image_url']) && $_FILES['image_url']['error'] === 0) {
+        $uploadDir = __DIR__ . '/../../public/images/products/'; // Ensure this directory exists
+
+        // Ensure directory exists
+        if (!is_dir($uploadDir)) {
+            mkdir($uploadDir, 0777, true);
+        }
+
+        $fileTmpPath = $_FILES['image_url']['tmp_name'];
+        $fileOriginalName = $_FILES['image_url']['name'];
+        $fileExtension = pathinfo($fileOriginalName, PATHINFO_EXTENSION);
+
+        // Generate a unique filename
+        $newFileName = uniqid("img_", true) . '.' . $fileExtension;
+        $destinationPath = $uploadDir . $newFileName;
+
+        // Move the file to the target directory
+        if (move_uploaded_file($fileTmpPath, $destinationPath)) {
+            // Delete the old image if a new one is uploaded
+            if (!empty($product['image_url']) && file_exists($uploadDir . $product['image_url'])) {
+                unlink($uploadDir . $product['image_url']);
+            }
+            $image_url = $newFileName; // Save the new filename
+        } else {
+            $errors['image_url'] = "File upload failed.";
+        }
+    }
+        
         
         $errors = $this->validate([
             'name' => 'required|min:3',
             'price' => 'required|numeric',
             'description' => 'required|min:5',
-            'image_url' => 'required',
+            // 'image_url' => 'required',
             'duration' => 'required|numeric',
             'power_level' => 'required',
             'stock' => 'required|numeric',

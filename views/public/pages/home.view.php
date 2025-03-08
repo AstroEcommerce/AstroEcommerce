@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="shortcut icon" href="/public/images/fav.png" type="image/x-icon">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AstruCures</title>
   <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <!-- Font Awesome for Icons -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      rel="stylesheet"
-    />
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  />
+  <!-- Font Awesome for Icons -->
+  <link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  rel="stylesheet"
+  />
     <link rel="stylesheet" href="/public/css/style.css" />
     <!-- Splide.js CSS -->
     <link href="
@@ -23,9 +24,31 @@
 <body>
   
 
+<?php if(isset($_SESSION['flash_error'])): ?> 
+      <div class="alert alert-danger alert-dismissible fade show position-fixed top-0 end-0 m-3" role="alert" style="width: auto; z-index: 1050; transition: transform 0.3s ease; transform: translateY(-50px);">
+        <?php echo $_SESSION['flash_error']; unset($_SESSION['flash_error']); ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <?php endif; ?>
+    <?php if(isset($_SESSION['flash_success'])): ?> 
+      <div class="alert alert-success alert-dismissible fade show position-fixed top-0 end-0 m-3" role="alert" style="width: auto; z-index: 1050; transition: transform 0.3s ease; transform: translateY(-50px);">
+        <?php echo $_SESSION['flash_success']; unset($_SESSION['flash_success']); ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <?php endif; ?>
+    <script>
+      document.querySelectorAll('.alert').forEach(alert => {
+        setTimeout(() => {
+          alert.style.transform = 'translateY(0)';
+        }, 100);
+      });
+    </script>
+  
+
 <?php include_once('./views/layout/public/header.php'); ?>
 
 <!-- hero -->
+
 
 <div class="hero">
       <div class="hero-content">
@@ -33,8 +56,8 @@
         <p class="hero-description">Unlock Your True Potential. Elevate your abilities with Astro Cures' cutting-edge superpower pills. The future of human evolution starts here.
         </p>
         <div class="hero-buttons">
-          <a href="#about" class="btn btn-primary">Shop Now</a>
-          <a href="#contact" class="btn btn-secondary">Learn More</a>
+          <a href="/shop" class="btn btn-primary">Shop Now</a>
+          <a href="/contact" class="btn btn-secondary">Learn More</a>
         </div>
       </div>
 </div>
@@ -169,7 +192,8 @@
 
 
 
-<script src="/js/navbar.js"></script>
+    <script src="/public/js/navbar.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <!-- Splide.js JavaScript -->

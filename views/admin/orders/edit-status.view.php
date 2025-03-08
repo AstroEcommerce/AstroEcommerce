@@ -23,26 +23,16 @@
       </header>
 
       <!-- Edit Order Form -->
-      <form class="edit-form">
-        <div class="input-group">
-          <label for="customer"><i class="fas fa-user"></i> Customer</label>
-          <input type="text" id="customer" value="John Doe" required />
-        </div>
-        <div class="input-group">
-          <label for="date"><i class="fas fa-calendar"></i> Date</label>
-          <input type="date" id="date" value="2023-10-01" required />
-        </div>
+      <form class="edit-form" action="/admin/orders/<?php echo $id; ?>/edit" method="POST">
         <div class="input-group">
           <label for="status"><i class="fas fa-tasks"></i> Status</label>
-          <select id="status">
-            <option value="Pending">Pending</option>
-            <option value="Completed">Completed</option>
-            <option value="Cancelled">Cancelled</option>
+          <select id="status" name="status" required>
+            <option value="pending">Pending</option>
+            <option value="processing">Processing</option>
+            <option value="shipped">Shipped</option>
+            <option value="delivered">Delivered</option>
+            <option value="canceled">Canceled</option>
           </select>
-        </div>
-        <div class="input-group">
-          <label for="total"><i class="fas fa-dollar-sign"></i> Total</label>
-          <input type="number" id="total" value="199.99" required />
         </div>
         <button type="submit" class="save-button">Save Changes</button>
       </form>

@@ -108,7 +108,7 @@ class AdminsController extends BaseAdmin
         $this->render('admin.admins.create');
     }
     
-        public function store()
+    public function store()
     {   
         $this->checkRole();
         $username = $_POST['username'] ?? null;

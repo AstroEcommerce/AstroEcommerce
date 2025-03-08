@@ -9,6 +9,7 @@
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    
 </head>
 
 <body>
@@ -25,95 +26,47 @@
           </button> -->
       </header>
 
+      <?php if (isset($orders) && count($orders) > 0): ?>
+      
       <!-- Orders Table -->
       <div class="table-container">
         <table>
           <thead>
             <tr>
-              <th>Order ID</th>
-              <th>Customer</th>
+              <th>#</th>
+              <th>Order No.</th>
               <th>Date</th>
-              <th>Status</th>
               <th>Total</th>
+              <th>Shipping Address</th>
+              <th>Status</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
+            <?php foreach ($orders as $key => $order): ?>
             <tr>
-              <td>#1001</td>
-              <td>John Doe</td>
-              <td>2023-10-01</td>
-              <td><span class="status completed">Completed</span></td>
-              <td>$199.99</td>
+              <td><?= $key + 1 ?></td>
+              <td><?= '#' . date('Y', strtotime($order['order_date'])) . 'X-' . $order['id'] ?? 'Not set' ?></td>
+              <td><?= $order['order_date'] ?? 'Not set' ?></td>
+              <td><?= $order['total_price'] ?? 'Not set' ?></td>
+              <td><?= $order['shipping_address'] ?? 'Not set' ?></td>
+              <td >
+                <p class="status-<?= strtolower($order['status'] ?? 'not-set') ?>" >
+                  <?= $order['status'] ?? 'Not set' ?>
+                </p>
+              </td>
               <td>
-                <button class="edit" title="Edit this order">
-                  <i class="fas fa-edit"></i>
-                </button>
-                <button class="delete" title="Delete this order">
-                  <i class="fas fa-trash"></i>
-                </button>
+              <button class="edit" title="Edit this product">
+                        <a href="/admin/orders/<?php echo $order['id']; ?>/edit" title="Edit this order">
+                          <i class="fas fa-edit"></i>
+                        </a>
+              </button>
               </td>
             </tr>
-            <tr>
-              <td>#1001</td>
-              <td>John Doe</td>
-              <td>2023-10-01</td>
-              <td><span class="status completed">Completed</span></td>
-              <td>$199.99</td>
-              <td>
-                <button class="edit" title="Edit this order">
-                  <i class="fas fa-edit"></i>
-                </button>
-                <button class="delete" title="Delete this order">
-                  <i class="fas fa-trash"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>#1001</td>
-              <td>John Doe</td>
-              <td>2023-10-01</td>
-              <td><span class="status completed">Completed</span></td>
-              <td>$199.99</td>
-              <td>
-                <button class="edit" title="Edit this order">
-                  <i class="fas fa-edit"></i>
-                </button>
-                <button class="delete" title="Delete this order">
-                  <i class="fas fa-trash"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>#1001</td>
-              <td>John Doe</td>
-              <td>2023-10-01</td>
-              <td><span class="status completed">Completed</span></td>
-              <td>$199.99</td>
-              <td>
-                <button class="edit" title="Edit this order">
-                  <i class="fas fa-edit"></i>
-                </button>
-                <button class="delete" title="Delete this order">
-                  <i class="fas fa-trash"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>#1001</td>
-              <td>John Doe</td>
-              <td>2023-10-01</td>
-              <td><span class="status completed">Completed</span></td>
-              <td>$199.99</td>
-              <td>
-                <button class="edit" title="Edit this order">
-                  <i class="fas fa-edit"></i>
-                </button>
-                <button class="delete" title="Delete this order">
-                  <i class="fas fa-trash"></i>
-                </button>
-              </td>
-            </tr>
+            <?php endforeach; ?>
+      <?php else: ?>
+        <p>There are no orders yet.</p>
+      <?php endif; ?>
             <!-- Add more rows as needed -->
           </tbody>
         </table>
