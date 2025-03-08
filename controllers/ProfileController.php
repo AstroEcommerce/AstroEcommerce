@@ -6,6 +6,7 @@ include_once './models/User.php';
 class ProfileController extends Controller
 {
     public function index($id)
+
 {
     // Check if the user is logged in and matches the requested profile
     if (isset($_SESSION['user']) && $_SESSION['user']['id'] == $id) {
@@ -37,6 +38,15 @@ class ProfileController extends Controller
         $this->redirect('/');
     }
 }
+
+
+    {
+        if (isset($_SESSION['user']) && $_SESSION['user']['id'] == $id) {
+            $this->render('public.profile.index', ['id' => $id]);
+        } else {
+            $this->redirect('/');
+        }
+    }
 
     public function edit($id)
     {

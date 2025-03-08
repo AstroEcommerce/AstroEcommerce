@@ -26,6 +26,7 @@ class HomeController extends Controller
     
     public function index()
     {
+
      
         $wishlistItems = null;
         if (isset($_SESSION['user']['id'])) {
@@ -37,11 +38,17 @@ class HomeController extends Controller
                 $wishlistItems = $wishlistItemsModel->allData($wishlistId);
             }
         }
+
+
         
         $bestSellers = $this->bestSellers();
         $newArrivals = $this->newArrivals();
         // require_once './views/home/index.view.php';
+
         $this->render('public.pages.home', ['bestSellers' => $bestSellers , 'newArrivals' => $newArrivals , 'wishlistItems' => $wishlistItems]);
+
+        $this->render('public.pages.home', ['bestSellers' => $bestSellers , 'newArrivals' => $newArrivals ]);
+
     }
 
 }

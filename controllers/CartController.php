@@ -123,6 +123,7 @@ class CartController extends Controller
 
     public function delete($id)
     {
+
         $cartItemsModel = $this->model('cartItems');
         $cartItemsModel->delete($id);
         $_SESSION['flash_success'] = 'Item removed from cart successfully';
@@ -205,6 +206,9 @@ class CartController extends Controller
         $count = $cartItemsModel->cartCount($_SESSION['user']['id']);
         $_SESSION['cartCount'] = $count;
         $this->redirect($_SERVER['HTTP_REFERER']);
+
+        $this->render('public.cart.show-cart' );
+
     }
 
 }

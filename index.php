@@ -20,10 +20,6 @@ include_once './controllers/admin/CategoriesController.php';
 include_once './controllers/ProfileController.php';
 
 
-
-
-
-
 $router = new Router();
 
 
@@ -42,6 +38,7 @@ $router->post('/auth/logout', 'AuthController@logout', 'auth.logout');
 $router->get('/shop', 'ShopController@index', 'shop.index');
 
 $router->get('/cart', 'CartController@index', 'cart.index');
+
 $router->post('/cart/add/{id}', 'CartController@add', 'cart.add');
 $router->delete('/cart/delete/{id}', 'CartController@delete', 'cart.delete');
 $router->put('/cart/increase/{id}', 'CartController@increase', 'cart.increase');
@@ -55,6 +52,10 @@ $router->get('/wishlist', 'WishlistController@index', 'wishlist.index');
 $router->post('/wishlist/add/{id}', 'WishlistController@add', 'wishlist.add');
 
 
+
+
+$router->get('/checkout', 'CheckoutController@index', 'checkout.index');
+$router->get('/checkout/complete', 'CheckoutController@complete', 'checkout.complete');
 
 
 $router->get('/products/{id}', 'ProductController@item', 'product.item');

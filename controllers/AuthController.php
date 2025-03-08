@@ -68,6 +68,7 @@ class AuthController extends Controller
             'date_of_birth' => $dob,
             'password' => password_hash($password, PASSWORD_DEFAULT)
         ]);
+
         
         
         $userInfo = $user->findByEmail($email);
@@ -82,6 +83,7 @@ class AuthController extends Controller
         $cart->create([
             'user_id' => $userId
         ]);
+
 
         $_SESSION['success_message'] = 'Registration successful! Redirecting to login...';
 
@@ -115,6 +117,7 @@ class AuthController extends Controller
             
         ] ;
         
+
         
         $cartItemsModel = $this->model('cartItems');
         $count = $cartItemsModel->cartCount($user[0]['id']);
@@ -125,6 +128,12 @@ class AuthController extends Controller
         $_SESSION['wishlistCount'] = $wishlistCount;
         
         
+        $_SESSION['user'] = $userData;
+
+
+
+
+
         $_SESSION['user'] = $userData;
 
 

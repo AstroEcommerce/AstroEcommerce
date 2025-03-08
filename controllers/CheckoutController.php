@@ -26,6 +26,7 @@ class CheckoutController extends Controller
     
     public function complete()
     {
+
         $name = $_POST['name'] ?? null;
         $planet_galaxy = $_POST['planet_galaxy'] ?? null;
         $dimension_code = $_POST['dimension_code'] ?? null;
@@ -78,6 +79,16 @@ class CheckoutController extends Controller
                         'name' => $name,
                         'order_id' => $orderId ,
                         'date' => date('Y-m-d'),]);
+
+        $this->render('public.cart.checkout' , []); 
+
+    }
+    
+    
+    
+    public function complete()
+    {
+        $this->render('public.cart.complete' ); 
     }
 
 }
