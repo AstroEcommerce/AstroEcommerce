@@ -38,5 +38,8 @@ class Category  extends Model
         return $this->update($id, ['deleted' => 1 ]);
         // return $this->query("UPDATE categories SET deleted = 1 WHERE id = (?)", [$id]);
     }
+    public function getProductByCategory(){
+        return $this->query("SELECT * FROM products WHERE category_id = ?", [$_POST['category_id']]);
+    }
 
 }

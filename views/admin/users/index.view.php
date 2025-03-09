@@ -1,6 +1,7 @@
 <html lang="en">
 
 <head>
+  <link rel="shortcut icon" href="/public/images/fav.png" type="image/x-icon">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Users</title>
@@ -40,7 +41,7 @@
           <tbody>
             <?php if (isset($users) && !empty($users)): ?>
               <?php foreach ($users as $key => $user) : ?>
-              <tr>
+                <tr>
                   <td><?= $key + 1 ?></td>
                   <td><?= $user['name'] ?></td>
                   <td><?= $user['email'] ?></td>
@@ -48,35 +49,35 @@
                   <td><?= $user['created_at'] ?></td>
                   <td><?= $user['updated_at'] ?></td>
                   <td>
-                      <div class="actions">
+                    <div class="actions">
 
-                        <!-- Delete Button -->
-                        <form id="deleteForm_<?php echo $user['id']; ?>" action="/admin/users/<?php echo $user['id']; ?>" method="post">
-                          <input type="hidden" name="_method" value="DELETE">
-                          <button type="button" class="delete" title="Delete this user" onclick="showDeleteModal(<?php echo $user['id']; ?>)">
-                            <i class="fas fa-trash"></i>
-                          </button>
-                        </form>
-                        <!-- Custom Pop-up (Modal) -->
-                        <div id="deleteModal_<?php echo $user['id']; ?>" class="modal">
-                          <div class="modal-content">
-                            <p>Are you sure you want to delete "<?php echo $user['name']; ?>"?</p>
-                            <div class="modal-buttons">
-                              <button type="button" onclick="confirmDelete(<?php echo $user['id']; ?>)">Sure</button>
-                              <button type="button" onclick="closeDeleteModal(<?php echo $user['id']; ?>)">Cancel</button>
-                            </div>
+                      <!-- Delete Button -->
+                      <form id="deleteForm_<?php echo $user['id']; ?>" action="/admin/users/<?php echo $user['id']; ?>" method="post">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="button" class="delete" title="Delete this user" onclick="showDeleteModal(<?php echo $user['id']; ?>)">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </form>
+                      <!-- Custom Pop-up (Modal) -->
+                      <div id="deleteModal_<?php echo $user['id']; ?>" class="modal">
+                        <div class="modal-content">
+                          <p>Are you sure you want to delete "<?php echo $user['name']; ?>"?</p>
+                          <div class="modal-buttons">
+                            <button type="button" onclick="confirmDelete(<?php echo $user['id']; ?>)">Sure</button>
+                            <button type="button" onclick="closeDeleteModal(<?php echo $user['id']; ?>)">Cancel</button>
                           </div>
                         </div>
                       </div>
-                    </td>
-              </tr>
-              <?php endforeach; ?>
-              <?php else: ?>
-                <tr>
-                  <td colspan="8">No users found.</td>
+                    </div>
+                  </td>
                 </tr>
-              <?php endif; ?>
-            </tbody>
+              <?php endforeach; ?>
+            <?php else: ?>
+              <tr>
+                <td colspan="8">No users found.</td>
+              </tr>
+            <?php endif; ?>
+          </tbody>
         </table>
       </div>
 
@@ -95,7 +96,7 @@
     </div>
   </div>
 
-  
+
   <script>
     // Show the delete confirmation modal for the selected product
     function showDeleteModal(productId) {

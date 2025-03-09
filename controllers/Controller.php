@@ -341,7 +341,37 @@ class Controller
                             $errors[$field][] = "The {$field} must be after {$ruleParam}.";
                         }
                         break;
-        
+                        case 'badWord':
+                            $bad_words = [
+                                // English Swear Words & Offensive Terms
+                                "ass", "asshole", "bastard", "bitch", "bloody", "bollocks", "bullshit", "cock", "cocksucker",
+                                "crap", "cunt", "damn", "dick", "dickhead", "dildo", "dipshit", "dumbass", "fag", "faggot",
+                                "fuck", "fucked", "fucker", "fucking", "goddamn", "hell", "hoe", "jackass", "jerk", "loser",
+                                "motherfucker", "moron", "nazi", "nigga", "nigger", "piss", "prick", "pussy", "retard",
+                                "scumbag", "shit", "shitty", "slut", "son of a bitch", "stupid", "suck", "twat", "wanker",
+                                "whore", "wtf", "bimbo", "chode", "dammit", "douche", "jackoff", "nutsack", "screwed", "skank",
+                                "turd", "arse", "arsehole", "bugger", "wuss", "scrub", "tramp", "minger", "nonce", "bollocking",
+                                "clit", "dickwad", "piss off", "cum", "cumming", "ejaculate", "blowjob", "handjob", "rimjob",
+                                "spank", "sperm", "spunk", "fuckboy", "fucker", "motherfucking", "shithead", "asswipe", "dipshit",
+                                // Arabic Swear Words & Offensive Terms
+                                "كلب", "حمار", "بغل", "زفت", "زبالة", "قذر", "وسخ", "حقير", "تافه", "عاهر", "عاهرة",
+                                "سافل", "منحط", "مقرف", "نتن", "نذل", "عديم الشرف", "خنزير", "قحبة", "ملعون", "كريه",
+                                "سخيف", "غبي", "معتوه", "أبله", "حقير", "كذاب", "جاهل", "مخنث", "ديوث", "جبان", "هزيل",
+                                "وضيع", "قواد", "متخلف", "بليد", "عبيط", "مجنون", "أهبل", "فاسق", "فاجر", "بذيء", "لعين",
+                                "مرتزق", "منحرف", "وقح", "مخزي", "متعفن", "بائس", "كئيب", "مرهق", "متسكع", "مقرف",
+                                "حيوان", "شرموطة", "عرص", "زاني", "فاجر", "ديوث", "شرموط", "خرا", "براز", "كس",
+                                "لعنة", "مص", "لحس", "زنخة", "ملعونة", "كحبة", "معفن", "وسخة", "منيوك", "كريهة"
+                            ];
+                            $words = explode(' ', $fieldValue);
+                            foreach ($words as $word) {
+                                // Trim the word of any whitespace or newline characters
+                                $trimmed_word = trim($word, " \t\n\r\0\x0B.,!");
+                                if (in_array($trimmed_word, $bad_words)) {
+                                    $errors[$field][] = "The {$field} contains inappropriate language.";
+                                    break;
+                                }
+                            }
+                            break;
                 }
             }
         }

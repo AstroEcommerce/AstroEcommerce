@@ -39,16 +39,17 @@
     color: white; /* White text */
 }
 
-.form-group input {
+.form-group input, .form-group textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #444;
     border-radius: 5px;
     background-color: #262e44; /* Dark input background */
     color: #ffffff; /* White text */
+    resize: none; /* Disable textarea resizing */
 }
 
-.form-group input:focus {
+.form-group input:focus, .form-group textarea:focus {
     border-color: white; /* White border on focus */
     outline: none;
 }
@@ -100,7 +101,7 @@
         font-size: 24px; /* Smaller heading for smaller screens */
     }
 
-    .form-group input {
+    .form-group input, .form-group textarea {
         padding: 8px; /* Smaller padding for inputs */
     }
 

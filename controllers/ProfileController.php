@@ -6,13 +6,38 @@ include_once './models/User.php';
 class ProfileController extends Controller
 {
     public function index($id)
-    {
-        if (isset($_SESSION['user']) && $_SESSION['user']['id'] == $id) {
-            $this->render('public.profile.index', ['id' => $id]);
-        } else {
-            $this->redirect('/');
+{
+    // Check if the user is logged in and matches the requested profile
+    if (isset($_SESSION['user']) && $_SESSION['user']['id'] == $id) {
+        // Fetch orders for the user
+        $order = $this->model('order');
+        $orders = $order->where('user_id', $id);
+        // var_dump($orders);
+        
+        // Fetch order items for each order
+        $orderItem = $this->model('orderItems');
+        $orderItems = [];
+        foreach ($orders as $order) {
+            // Fetch items for the current order
+            $items = $orderItem->allData($order['id']);
+            // Store items by order ID for easy access in the view
+            $orderItems[$order['id']] = $items;
         }
+        
+
+
+        // Render the view with the necessary data
+        $this->render('public.profile.index', [
+            'id' => $id,
+            'orders' => $orders,
+            'orderItems' => $orderItems
+        ]);
+    } else {
+        // Redirect if the user is not authorized
+        $this->redirect('/');
     }
+}
+
     public function edit($id)
     {
         $profile = $this->model('user');
@@ -76,4 +101,49 @@ class ProfileController extends Controller
 
         $this->redirect('/profile/'.$id);
     }
+    
+    public function cancel($id)
+    {
+        $ordersModel = $this->model('order');
+        $ordersModel->update($id , ['status' => 'canceled']);
+        
+        $userId = isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : null;
+        
+        $this->redirect('/profile/' . $userId);
+    }
+    
+    
+    public function addTestimonial(){
+        if(!isset($_SESSION['user'])) {
+            $this->redirect('/login');
+        }
+        $this->render('public.profile.addTestimonial');
+    }
+    
+    public function saveTestimonial(){
+        if(!isset($_SESSION['user'])) {
+            $this->redirect('/login');
+        }
+        $name = $_POST['name'] ?? null;
+        $message = $_POST['message'] ?? null;
+        
+        
+        $errors = $this->validate([
+            'message' => 'required|badWord'
+        ]);
+        
+        if(!empty($errors)){
+            $this->render('public.profile.addTestimonial', ['errors' => $errors]);
+            exit;
+        }
+        
+        $testimonial = $this->model('testimonial');
+        $testimonial->create([
+            'name' => $name,
+            'message' => $message
+        ]);
+        
+        $this->render('public.profile.addTestimonial', ['accepted' => true]);
+    }
+    
 }

@@ -62,7 +62,12 @@ class Product  extends Model
         return $product;
     }
     
-        
+    public function productCount($query)
+    {
+        $countQuery = "SELECT COUNT(*) FROM ($query) AS subquery";
+        $result = $this->query($countQuery);
+        return $result[0]['COUNT(*)'] ?? 0;
+    }
 
     
 }

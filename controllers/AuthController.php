@@ -68,6 +68,20 @@ class AuthController extends Controller
             'date_of_birth' => $dob,
             'password' => password_hash($password, PASSWORD_DEFAULT)
         ]);
+        
+        
+        $userInfo = $user->findByEmail($email);
+        $userId = $userInfo[0]['id'];
+        
+        $cart = $this->model('cart');
+        $wishlist = $this->model('wishlist');
+        
+        $wishlist->create([
+            'user_id' => $userId
+        ]);
+        $cart->create([
+            'user_id' => $userId
+        ]);
 
         $_SESSION['success_message'] = 'Registration successful! Redirecting to login...';
 
@@ -101,8 +115,18 @@ class AuthController extends Controller
             
         ] ;
         
+        
+        $cartItemsModel = $this->model('cartItems');
+        $count = $cartItemsModel->cartCount($user[0]['id']);
+        $_SESSION['cartCount'] = $count;
 
+        $wishlistItemsModel = $this->model('wishlistItems');
+        $wishlistCount = $wishlistItemsModel->wishlistCount($user[0]['id']);
+        $_SESSION['wishlistCount'] = $wishlistCount;
+        
+        
         $_SESSION['user'] = $userData;
+
 
 
         $this->redirect('/');
@@ -110,7 +134,9 @@ class AuthController extends Controller
 
     public function logout()
     {
-        session_destroy();
+        unset($_SESSION['user']);
+        unset($_SESSION['cartCount']);
+        unset($_SESSION['wishlistCount']);
         $this->redirect('/');
     }
     

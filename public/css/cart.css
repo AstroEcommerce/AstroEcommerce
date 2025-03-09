@@ -1,5 +1,5 @@
 body {
-    background-color: #0d0b14;
+    background-color: #000924;
     color: white;
     margin-top: 112px !important;
 }
@@ -21,7 +21,7 @@ body {
 }
 
 .cart-item {
-    background-color: #181818;
+    background-color: #0d162f;
     border-radius: 10px;
     padding: 15px;
     margin-bottom: 15px;
@@ -45,7 +45,7 @@ body {
 }
 
 .total-box {
-    background-color: #141024;
+    background-color: #0d162f;
     padding: 20px;
     border-radius: 10px;
 }
@@ -64,8 +64,8 @@ body {
     color: white !important;
 }
 .input-design {
-    width: 5% !important;
-    background: #141024 !important;
+    width: 6% !important;
+    background: #0d162f !important;
    
     color: white;
     border: none;
@@ -77,4 +77,23 @@ p {
 
 .quantity {
     margin-top: 20px;
+}
+
+
+.modal-dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Ensure it takes the full viewport height */
+    margin: 0 auto; /* Center horizontally */
+}
+
+.modal-content {
+    width: 100%; /* Ensure the modal content takes full width */
+}
+
+.cart-checkout {
+    margin: 20px auto;
+    width: 100%;
+    
 }

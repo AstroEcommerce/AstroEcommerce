@@ -16,7 +16,7 @@
               <span class="navbar-toggler-icon"></span>
             </button>
             <!-- Logo -->
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
               <img
                 src="/public/images/logo.png"
                 width="100px"
@@ -35,12 +35,13 @@
             </ul>
           </div>
           <!-- Search Bar -->
-          <form class="d-flex align-items-center siteSearch">
+          <form class="d-flex align-items-center siteSearch" action="/shop">
             <input
               class="form-control me-2 search-bar"
               type="search"
               placeholder="Search"
               aria-label="Search"
+              name="search"
             />
             <button title="Search" class="btn btn-outline-light" type="submit">
               <i class="fas fa-search"></i>
@@ -49,10 +50,16 @@
           <!-- Icons (Wishlist, Cart, Account) -->
           <ul class="navbar-nav ms-auto align-items-center siteIcons">
             <li class="nav-item">
-              <a class="nav-link" href="/wishlist" title="Wishlist"><i class="fas fa-heart"></i></a>
+              <a class="nav-link" href="/wishlist" title="Wishlist"><i class="fas fa-heart"></i>
+              <?php if (isset($_SESSION['wishlistCount'])) {echo $_SESSION['wishlistCount'];} ?>
+            </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/cart" title="Cart"><i class="fas fa-shopping-cart"></i></a>
+              <a class="nav-link" href="/cart" title="Cart">
+                <i class="fas fa-shopping-cart">
+                </i>
+                <?php if (isset($_SESSION['cartCount'])) {echo $_SESSION['cartCount'];} ?>
+              </a>
             </li>
             <li class="nav-item">
                 <?php if (isset($_SESSION['user'])): ?>
@@ -81,15 +88,15 @@
             </button>
             <div class="category-slider-container flex-grow-1 mx-2">
               <div class="category-slider">
-                <a href="#" class="btn btn-outline-light mx-1">Physical</a>
-                <a href="#" class="btn btn-outline-light mx-1">Elemental</a>
-                <a href="#" class="btn btn-outline-light mx-1">Mental and Psychic</a>
-                <a href="#" class="btn btn-outline-light mx-1">Transformation</a>
-                <a href="#" class="btn btn-outline-light mx-1">Dimensional Manipulation</a>
-                <a href="#" class="btn btn-outline-light mx-1">Biological Powers</a>
-                <a href="#" class="btn btn-outline-light mx-1">Invisibility</a>
-                <a href="#" class="btn btn-outline-light mx-1">Nature-Based Powers</a>
-                <a href="#" class="btn btn-outline-light mx-1">Memory and Knowledge</a>
+                <a href="/shop?category1=1" class="btn btn-outline-light mx-1">Physical</a>
+                <a href="/shop?category2=2" class="btn btn-outline-light mx-1">Elemental</a>
+                <a href="/shop?category3=3" class="btn btn-outline-light mx-1">Mental and Psychic</a>
+                <a href="/shop?category4=4" class="btn btn-outline-light mx-1">Transformation</a>
+                <a href="/shop?category5=5" class="btn btn-outline-light mx-1">Dimensional Manipulation</a>
+                <a href="/shop?category6=6" class="btn btn-outline-light mx-1">Biological Powers</a>
+                <a href="/shop?category7=7" class="btn btn-outline-light mx-1">Invisibility</a>
+                <a href="/shop?category8=8" class="btn btn-outline-light mx-1">Nature-Based Powers</a>
+                <a href="/shop?category9=9" class="btn btn-outline-light mx-1">Memory and Knowledge</a>
               </div>
             </div>
             <button title="Scroll Right" class="btn btn-outline-light btn-sm scroll-right">

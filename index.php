@@ -8,6 +8,7 @@ include_once './controllers/ContactController.php';
 include_once './controllers/AuthController.php';
 include_once './controllers/ShopController.php';
 include_once './controllers/CartController.php';
+include_once './controllers/WishlistController.php';
 include_once './controllers/CheckoutController.php';
 include_once './controllers/admin/LoginController.php';
 include_once './controllers/admin/DashboardController.php';
@@ -17,6 +18,8 @@ include_once './controllers/admin/AdminsController.php';
 include_once './controllers/admin/ProductsController.php';
 include_once './controllers/admin/CategoriesController.php';
 include_once './controllers/ProfileController.php';
+include_once './controllers/admin/TestimonialsController.php';
+
 
 
 
@@ -40,14 +43,30 @@ $router->post('/auth/logout', 'AuthController@logout', 'auth.logout');
 $router->get('/shop', 'ShopController@index', 'shop.index');
 
 $router->get('/cart', 'CartController@index', 'cart.index');
-$router->get('/checkout', 'CheckoutController@index', 'checkout.index');
-$router->get('/checkout/complete', 'CheckoutController@complete', 'checkout.complete');
+$router->post('/cart/add/{id}', 'CartController@add', 'cart.add');
+$router->delete('/cart/delete/{id}', 'CartController@delete', 'cart.delete');
+$router->put('/cart/increase/{id}', 'CartController@increase', 'cart.increase');
+$router->put('/cart/decrease/{id}', 'CartController@decrease', 'cart.decrease');
+$router->post('/checkout', 'CheckoutController@checkout', 'checkout.checkout');
+$router->post('/checkout/complete', 'CheckoutController@complete', 'checkout.complete');
+
+
+
+$router->get('/wishlist', 'WishlistController@index', 'wishlist.index');
+$router->post('/wishlist/add/{id}', 'WishlistController@add', 'wishlist.add');
+
+
+
 
 $router->get('/products/{id}', 'ProductController@item', 'product.item');
 
 $router->get('/profile/{id}', 'ProfileController@index', 'profile.index');
 $router->get('/profile/{id}/edit', 'ProfileController@edit', 'profile.edit');
 $router->put('/profile/{id}/edit', 'ProfileController@update', 'profile.update');
+$router->put('/orders/{id}/cancel', 'ProfileController@cancel', 'profile.cancel');
+
+$router->get('/testimonials/add', 'ProfileController@addTestimonial', 'profile.addTestimonial');
+$router->post('/testimonials/add', 'ProfileController@saveTestimonial', 'profile.saveTestimonial');
 
   
 // admin routes
@@ -61,6 +80,7 @@ $router->get('/admin/dashboard', 'DashboardController@index', 'admin.dashboard.i
 
 $router->get('/admin/orders', 'OrdersController@index', 'admin.orders.index');
 $router->get('/admin/orders/{id}/edit', 'OrdersController@editOrderStatus', 'admin.orders.edit');
+$router->post('/admin/orders/{id}/edit', 'OrdersController@editStatus', 'admin.orders.status');
 
 $router->get('/admin/users', 'UsersController@index', 'admin.users.index');
 $router->get('/admin/users/{id}/edit', 'UsersController@editUser', 'admin.users.edit');
@@ -95,7 +115,9 @@ $router->get('/admin/categories/{id}/edit', 'CategoriesController@editCategory',
 $router->put('/admin/categories/{id}/edit', 'CategoriesController@update', 'admin.categories.update');
 $router->delete('/admin/categories/{id}', 'CategoriesController@delete', 'admin.categories.delete');
 
-
+$router->get('/admin/testimonials', 'TestimonialsController@index', 'admin.testimonials.index');
+$router->put('/admin/testimonials/{id}/accept', 'TestimonialsController@accept', 'admin.testimonials.accept');
+$router->put('/admin/testimonials/{id}/reject', 'TestimonialsController@reject', 'admin.testimonials.reject');
 
 
 

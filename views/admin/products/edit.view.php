@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <link rel="shortcut icon" href="/public/images/fav.png" type="image/x-icon">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Edit Product</title>
@@ -104,12 +105,12 @@
           </select>
         </div>
         <div class="input-group">
-        <label for="image-url"><i class="fas fa-image"></i> Image</label>
-        <input type="file" id="image-url" name="image_url" />
-        <?php if (!empty($product['image_url'])): ?>
+          <label for="image-url"><i class="fas fa-image"></i> Image</label>
+          <input type="file" id="image-url" name="image_url" />
+          <?php if (!empty($product['image_url'])): ?>
             <br><img src="/public/images/products/<?php echo htmlspecialchars($product['image_url']); ?>" alt="Current Image" width="100">
-        <?php endif; ?>
-      </div>
+          <?php endif; ?>
+        </div>
         <button type="submit" class="save-button">Save Changes</button>
       </form>
     </div>

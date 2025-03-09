@@ -18,7 +18,7 @@ class LoginController extends Controller
     
     public function logout()
     {
-        session_destroy();
+        unset($_SESSION['admin']);
         $this->render('admin.auth.login');
     }
     
