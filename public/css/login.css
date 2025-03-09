@@ -313,3 +313,51 @@ input:-internal-autofill-selected {
 h1 {
 	font-size: 45px !important;
 }
+
+
+.password-requirements {
+	font-size: 0.7em;
+	color: #666;
+	margin-top: 5px;
+}
+
+.password-requirements p {
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+.password-requirements ul {
+	list-style-type: none;
+	padding-left: 0;
+	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px; /* Adds spacing between items */
+}
+
+.password-requirements li {
+	flex: 1 1 calc(50% - 10px); 
+	display: flex;
+	align-items: center;
+	gap: 5px; 
+}
+
+.password-requirements li::before {
+	content: "⁙"; /* Custom bullet */
+	font-size: 0.9em;
+}
+
+.password-requirements li.valid {
+	color: green;
+}
+
+.password-requirements li.invalid {
+	color: red;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+	.password-requirements li {
+			flex: 1 1 100%; /* One item per row on small screens */
+	}
+}

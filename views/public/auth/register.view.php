@@ -39,6 +39,16 @@
                 <div class="input-group">
                     <input type="password" id="password" name="password" placeholder="Password" value="<?php echo isset($values['password']) ? $values['password'] : ''; ?>" />
                     <div id="passwordError" class="error"><?php echo isset($errors['password']) ? $errors['password'][0] : ''; ?></div>
+                    <div class="password-requirements">
+                        <p>At least :</p>
+                        <ul class="d-flex flex-wrap gap-2">
+                            <li id="req-upper">One uppercase letter</li>
+                            <li id="req-lower">One lowercase letter</li>
+                            <li id="req-number">One number</li>
+                            <li id="req-special">One special character</li>
+                            <li id="req-length">8 characters</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="input-group">
                     <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" value="<?php echo isset($values['confirm_password']) ? $values['confirm_password'] : ''; ?>" />

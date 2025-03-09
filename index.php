@@ -21,10 +21,6 @@ include_once './controllers/ProfileController.php';
 include_once './controllers/admin/TestimonialsController.php';
 
 
-
-
-
-
 $router = new Router();
 
 
