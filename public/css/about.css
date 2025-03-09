@@ -30,16 +30,21 @@ body{
 }
 
 #unmute-button{
-  aspect-ratio: 1/1;
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  transform: translate(-50%, -50%);
-  background-color: transparent;
-  border: none;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 50%;
-  z-index: 10000;
+  width: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1/1 !important;
+  position: absolute !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  transform: translate(-50%, -50%) !important;
+  border: none !important;
+  background: none !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  border-radius: 50% !important;
+  z-index: 10000 !important;
 }
 
 

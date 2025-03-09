@@ -60,6 +60,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
+    padding-bottom: 60px;
 }
 
 .container h1 {
@@ -116,6 +117,18 @@
     height: 100%;
     object-fit: cover;
     fill: var(--light);
+  }
+  
+  .love-icon{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 123456789;
+}
+
+  .love-icon i:hover {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
   }
   
   .title {
@@ -334,3 +347,88 @@ input[type="range"]::-ms-fill-upper {
   border-radius: 5px;
 }
 
+
+
+@media (max-width: 768px) {
+  .cards {
+    margin-top: 30px;
+  }
+}
+
+
+/* Pagination container */
+.pagination {
+  margin: 20px 0;
+}
+
+/* Pagination items (li elements) */
+.pagination .page-item {
+
+  display: inline-block;
+}
+
+/* Pagination links (a elements) */
+.pagination .page-link {
+  color: white; /* Default link color */
+  background-color: #0d162f; /* Default background color */
+  border: none !important; /* Default border color */
+  padding: 8px 12px;
+
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Hover state for pagination links */
+.pagination .page-link:hover {
+  color: #0d162f; /* Hover text color */
+  background-color: #e9ecef; /* Hover background color */
+  border-color: #dee2e6; /* Hover border color */
+}
+
+/* Active page item */
+.pagination .page-item.active .page-link {
+  color: #0d162f; /* Active text color */
+  background-color: #e9ecef; /* Active background color */
+  border-color: #0d162f; /* Active border color */
+}
+
+/* Disabled page item */
+.pagination .page-item.disabled .page-link {
+  color: #6c757d; /* Disabled text color */
+  background-color: #fff; /* Disabled background color */
+  border-color: #dee2e6; /* Disabled border color */
+  pointer-events: none; /* Disable click events */
+}
+
+/* Ellipsis (disabled item for "..." separator) */
+.pagination .page-item.disabled .page-link {
+  color: #6c757d; /* Ellipsis text color */
+  background-color: transparent; /* Transparent background */
+  border-color: transparent; /* No border */
+}
+
+.apply{
+  background: linear-gradient(to right, #1e90ff, #6a5acd) ! important;
+  color: #fff ! important;
+  border-radius: 50px ! important;
+}
+
+.apply:hover{
+  background: linear-gradient(to left, #1e90ff, #6a5acd) ! important;
+  color: #fff ! important;
+  border-radius: 50px ! important;
+}
+
+
+
+.modal-dialog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Ensure it takes the full viewport height */
+  margin: 0 auto; /* Center horizontally */
+}
+
+.modal-content {
+  width: 100%; /* Ensure the modal content takes full width */
+}

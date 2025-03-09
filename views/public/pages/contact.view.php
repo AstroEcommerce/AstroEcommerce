@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <link rel="shortcut icon" href="/public/images/fav.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Star Dust Elixirs</title>
@@ -8,11 +10,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="public/css/contact.css">
     <link rel="stylesheet" href="public/css/style.css">
-    
+
 
 </head>
+
 <body>
-<?php include_once('./views/layout/public/header.php'); ?>
+    <?php include_once('./views/layout/public/header.php'); ?>
 
     <header class="header text-center">
         <h1>Contact Intergalactic Support</h1>
@@ -79,15 +82,15 @@
                         </div>
                     </div>
                     <div class="mt-3 text-light">
-                            <i class="fa-solid fa-comments text-xl text-light1"></i>
-                            <span>Live Chat</span>&nbsp
-                            <i class="fa-solid fa-book text-xl text-light1"></i>
-                            <span>Knowledge Base</span>
-                    </div>
+                        <i class="fa-solid fa-comments text-xl text-light1"></i>
+                        <span>Live Chat</span>&nbsp
+                        <i class="fa-solid fa-book text-xl text-light1"></i>
+                        <span>Knowledge Base</span>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <?php include_once('./views/layout/public/header.php'); ?>
@@ -95,4 +98,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/public/js/navbar.js"></script>
 </body>
+
 </html>

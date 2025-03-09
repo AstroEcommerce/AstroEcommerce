@@ -25,17 +25,23 @@ class Controller
     {
         // Initialize common controller resources
         $this->initializeSession();
+        
     }
 
     /**
      * Initialize session if it hasn't been started
      */
-    protected function initializeSession()
+    public function initializeSession()
     {
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
     }
+    
+
+    
+    
+
 
     /**
      * Render a view with the given data
@@ -268,12 +274,104 @@ class Controller
                             $errors[$field][] = "The {$field} must contain only letters.";
                         }
                         break;
+                    case 'alphaSpace':
+                        if (!preg_match('/^[a-zA-Z]+(?:\s[a-zA-Z]+)*$/', $fieldValue)) {
+                            $errors[$field][] = "The {$field} must contain only letters and spaces.";
+                        }
+                        break;
 
                     case 'alphanumeric':
                         if (!ctype_alnum($fieldValue)) {
                             $errors[$field][] = "The {$field} must contain only letters and numbers.";
                         }
                         break;
+
+                    case 'password':
+                        if (strlen($fieldValue) < 8) {
+                            $errors[$field][] = "The {$field} must be at least 8 characters.";
+                        }
+
+                        if (!preg_match('/[A-Z]/', $fieldValue)) {
+                            $errors[$field][] = "The {$field} must contain at least one uppercase letter.";
+                        }
+
+                        if (!preg_match('/[a-z]/', $fieldValue)) {
+                            $errors[$field][] = "The {$field} must contain at least one lowercase letter.";
+                        }
+
+                        if (!preg_match('/\d/', $fieldValue)) {
+                            $errors[$field][] = "The {$field} must contain at least one number.";
+                        }
+
+                        if (!preg_match('/[^A-Za-z0-9]/', $fieldValue)) {
+                            $errors[$field][] = "The {$field} must contain at least one special character.";
+                        }
+
+                        break;
+
+                    case 'match':
+                        if ($fieldValue !== $data[$ruleParam]) {
+                            $errors[$field][] = "The {$field} must match the {$ruleParam}.";
+                        }
+                        break;
+
+                    case 'date':
+                        // Validate date format (YYYY-MM-DD)
+                        if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $fieldValue)) {
+                            $errors[$field][] = "The {$field} must be a valid date in the format YYYY-MM-DD.";
+                        } else {
+                            // Check if the date is valid (e.g., not February 30)
+                            $dateParts = explode('-', $fieldValue);
+                            if (!checkdate($dateParts[1], $dateParts[2], $dateParts[0])) {
+                                $errors[$field][] = "The {$field} is not a valid date.";
+                            }
+                        }
+                        break;
+    
+                    case 'date_before':
+                        // Validate that the date is before a specific date
+                        if (strtotime($fieldValue) >= strtotime($ruleParam)) {
+                            $errors[$field][] = "The {$field} must be before {$ruleParam}.";
+                        }
+                        break;
+    
+                    case 'date_after':
+                        // Validate that the date is after a specific date
+                        if (strtotime($fieldValue) <= strtotime($ruleParam)) {
+                            $errors[$field][] = "The {$field} must be after {$ruleParam}.";
+                        }
+                        break;
+                        case 'badWord':
+                            $bad_words = [
+                                // English Swear Words & Offensive Terms
+                                "ass", "asshole", "bastard", "bitch", "bloody", "bollocks", "bullshit", "cock", "cocksucker",
+                                "crap", "cunt", "damn", "dick", "dickhead", "dildo", "dipshit", "dumbass", "fag", "faggot",
+                                "fuck", "fucked", "fucker", "fucking", "goddamn", "hell", "hoe", "jackass", "jerk", "loser",
+                                "motherfucker", "moron", "nazi", "nigga", "nigger", "piss", "prick", "pussy", "retard",
+                                "scumbag", "shit", "shitty", "slut", "son of a bitch", "stupid", "suck", "twat", "wanker",
+                                "whore", "wtf", "bimbo", "chode", "dammit", "douche", "jackoff", "nutsack", "screwed", "skank",
+                                "turd", "arse", "arsehole", "bugger", "wuss", "scrub", "tramp", "minger", "nonce", "bollocking",
+                                "clit", "dickwad", "piss off", "cum", "cumming", "ejaculate", "blowjob", "handjob", "rimjob",
+                                "spank", "sperm", "spunk", "fuckboy", "fucker", "motherfucking", "shithead", "asswipe", "dipshit",
+                                // Arabic Swear Words & Offensive Terms
+                                "كلب", "حمار", "بغل", "زفت", "زبالة", "قذر", "وسخ", "حقير", "تافه", "عاهر", "عاهرة",
+                                "سافل", "منحط", "مقرف", "نتن", "نذل", "عديم الشرف", "خنزير", "قحبة", "ملعون", "كريه",
+                                "سخيف", "غبي", "معتوه", "أبله", "حقير", "كذاب", "جاهل", "مخنث", "ديوث", "جبان", "هزيل",
+                                "وضيع", "قواد", "متخلف", "بليد", "عبيط", "مجنون", "أهبل", "فاسق", "فاجر", "بذيء", "لعين",
+                                "مرتزق", "منحرف", "وقح", "مخزي", "متعفن", "بائس", "كئيب", "مرهق", "متسكع", "مقرف",
+                                "حيوان", "شرموطة", "عرص", "زاني", "فاجر", "ديوث", "شرموط", "خرا", "براز", "كس",
+                                "لعنة", "مص", "لحس", "زنخة", "ملعونة", "كحبة", "معفن", "وسخة", "منيوك", "كريهة"
+                            ];
+                            $words = explode(' ', $fieldValue);
+                            foreach ($words as $word) {
+                                // Trim the word of any whitespace or newline characters
+                                $trimmed_word = trim($word, " \t\n\r\0\x0B.,!");
+                                if (in_array($trimmed_word, $bad_words)) {
+                                    $errors[$field][] = "The {$field} contains inappropriate language.";
+                                    break;
+                                }
+                            }
+                            break;
                 }
             }
         }

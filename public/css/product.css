@@ -1,5 +1,7 @@
 body {
-    margin-top: 110px !important;
+    background-color: #0d0b14;
+    margin-top: 112px !important;
+    color: white;
 }
 
 @media (max-width: 768px) {
@@ -14,7 +16,7 @@ body {
 
 
 .product-image-container {
-    background-color: #1f2937;
+    background-color: #141024;
     border-radius: 10px;
     padding: 20px;
     width: 100%;
@@ -31,20 +33,24 @@ body {
     object-fit: cover; 
 }
 
-
-
 .product-image {
     max-width: 100%;
     border-radius: 10px;
+
 }
-.card1 {
-    background-color: #111827;
+
+
+
+.card {
+    background-color: #141024;
     border-radius: 10px;
     padding: 20px;
 }
 .btn-primary {
-    background-color: #7d2ae8;
+    background: linear-gradient(to right, #1e90ff, #6a5acd) !important;
     border: none;
+    border-radius: 50px;
+
 }
 .btn-primary:hover {
     background-color: #5c1bb2;
@@ -57,6 +63,8 @@ body {
 }
 .card1{
     color: white;
+    display: flex;
+    flex-direction: column;
 }
 .text-warning{
     color:  #937cdf !important;
@@ -71,6 +79,7 @@ body {
     width: 50%;
     border-radius: 10px;
 }
-path {
+
+.card1 path {
     color: #7d2ae8;
  }

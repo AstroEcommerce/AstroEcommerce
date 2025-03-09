@@ -17,25 +17,39 @@ class Product  extends Model
     
     
     
-    // public function all()
-    // {
-    //     $sql = "SELECT * FROM products";
-    //     $stmt = $this->conn->query($sql);
+    public function allData()
+    {
+            $sql = "SELECT products.*, categories.name as category FROM products 
+                INNER JOIN categories ON products.category_id = categories.id 
+                WHERE products.deleted = 0
+                ORDER BY products.id DESC";
+        return $this->query($sql); 
 
-    //     return $stmt->fetchAll();
-    // }
+    }
+    
+    public function getCategories()
+    {
+        return $this->query("SELECT * FROM categories ");
+    }
+    
+    public function softDelete($id)
+    {
+        return $this->update($id, 
+        ['deleted' => 1 ]);
+    }
+    
+    
     
     
     public function ten()
     {
-        return $this->query("SELECT * FROM products LIMIT 10");
+        return $this->query("SELECT * FROM products WHERE deleted = 0 LIMIT 10 ");
     }
     
     public function lastTen()
     {
-        return $this->query("SELECT * FROM products ORDER BY id DESC LIMIT 10");
+        return $this->query("SELECT * FROM products WHERE deleted = 0 ORDER BY id DESC LIMIT 10");
     }
-    
     
     public function item($id)
     {
@@ -48,7 +62,12 @@ class Product  extends Model
         return $product;
     }
     
-        
+    public function productCount($query)
+    {
+        $countQuery = "SELECT COUNT(*) FROM ($query) AS subquery";
+        $result = $this->query($countQuery);
+        return $result[0]['COUNT(*)'] ?? 0;
+    }
 
     
 }

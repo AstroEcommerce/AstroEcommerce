@@ -5,18 +5,18 @@
       <div class="row mb-3">
         <div class="col-md-3">
           <h6>Quick Links</h6>
-          <a href="#">Our Products</a><br />
-          <a href="#">Contact Us</a>
+          <a href="/shop">Our Products</a><br />
+          <a href="/contact">Contact Us</a>
         </div>
         <div class="col-md-3">
           <h6>Support</h6>
-          <a href="#">FAQs</a><br />
+          <a href="/contact">FAQs</a><br />
           <a href="#">Terms & Conditions</a><br />
           <a href="#">Privacy Policy</a>
         </div>
         <div class="col-md-3">
           <h6>Company</h6>
-          <a href="#">About Us</a><br />
+          <a href="/about">About Us</a><br />
           <a href="#">Careers</a>
         </div>
         <div class="col-md-3">
