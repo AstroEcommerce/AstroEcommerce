@@ -39,7 +39,7 @@
                             <div class="d-flex flex-column gap-3 w-100 p-2 m-2 justify-content-around align-items-center">
                                 <div class="d-flex w-100 justify-content-between">
                                     <div>
-                                        <h5 class="text-light">Order #<?php echo $order['id']; ?></h5>
+                                        <h5 class="text-light">Order #<?php echo date('Y', strtotime($order['created_at'] ?? '')) . 'X-' . $order['id']; ?></h5>
                                         <p style="color: #7e6bf5;"><?php echo date('F j, Y', strtotime($order['created_at'] ?? '')); ?></p>
                                     </div>
                                     <div>
