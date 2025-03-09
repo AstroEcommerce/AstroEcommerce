@@ -184,3 +184,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+$(document).ready(function() {
+    $('#password').on('input', function() {
+        const password = $(this).val();
+        const upperCase = /[A-Z]/.test(password);
+        const lowerCase = /[a-z]/.test(password);
+        const number = /[0-9]/.test(password);
+        const specialChar = /[!@#$%^&*]/.test(password);
+        const length = password.length >= 8;
+
+        $('#req-upper').toggleClass('valid', upperCase).toggleClass('invalid', !upperCase);
+        $('#req-lower').toggleClass('valid', lowerCase).toggleClass('invalid', !lowerCase);
+        $('#req-number').toggleClass('valid', number).toggleClass('invalid', !number);
+        $('#req-special').toggleClass('valid', specialChar).toggleClass('invalid', !specialChar);
+        $('#req-length').toggleClass('valid', length).toggleClass('invalid', !length);
+    });
+});
